@@ -1,0 +1,15 @@
+{
+  "name": "doc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "front": "cd node_modules/@desco/tot && npm run-script front",
+    "back": "cd node_modules/@desco/tot && npm run-script back"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@desco/tot": "^1.0.0"
+  }
+}
