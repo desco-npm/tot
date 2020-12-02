@@ -1,7 +1,7 @@
 {
   "name": "@desco/tot",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "link": "node link",
     "front": "node link && vue-cli-service serve",
@@ -44,6 +44,10 @@
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
     "vue-template-compiler": "^2.6.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/descodifica/tot"
   },
   "eslintConfig": {
     "root": true,
