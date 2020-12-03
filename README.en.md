@@ -1,4 +1,5 @@
 # @desco/tot
+![logo](/assets/logo.png)
 
 >[Ver a documentação em Portugês Brasileiro](README.md)
 
