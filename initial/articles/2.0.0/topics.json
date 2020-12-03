@@ -1,0 +1,35 @@
+[
+    {
+        "id": "level1",
+        "label": {
+            "ptbr": "Nivel 1",
+            "en": "Level 1"
+        },
+        "children": [
+            {
+                "id": "level.1.1",
+                "label": {
+                    "ptbr": "Nível 1.1",
+                    "en": "Level 1.1"
+                }
+            }
+        ]
+    },
+    {
+        "id": "level2",
+        "label": {
+            "ptbr": "Nivel 2",
+            "en": "Level 2"
+        },
+        "article": false,
+        "children": [
+            {
+                "id": "level.2.1",
+                "label": {
+                    "ptbr": "Nível 2.1",
+                    "en": "Level 2.1"
+                }
+            }
+        ]
+    }
+]

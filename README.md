@@ -8,8 +8,8 @@ npm install @desco/tot
 cp node_modules/@desco/tot/initial/* .
 ```
 
-1. Instala o **Tot**
-2. Copia arquivos de modelo inicial do Tot para o seu projeto
+1. Instala o **Tot**;
+2. Copia arquivos de modelo inicial do Tot para o seu projeto;
 
 > Note que dentre os arquivos copiados no passo 3, consta um *packages.json* que irá **sobrescrever** o atual.
 
@@ -36,7 +36,7 @@ Veja uma tabela com todas as configurações disponíveis:
 | LANGUAGES | Idiomas suportados pela documentação |
 
 
-### VERSIONS
+### A configuração "VERSIONS"
 
 A configuração `VERSIONS` deve conter uma lista contendo objetos com as seguintes propriedades:
 
@@ -52,7 +52,7 @@ A configuração `VERSIONS` deve conter uma lista contendo objetos com as seguin
 VERSIONS=[ { number: '1.0.0', }, { number: '1.0.1', }, { number: '1.2.9', }, ]
 ```
 
-### LANGUAGES
+### A configuração "LANGUAGES"
 
 A configuração `LANGUAGES` deve conter uma lista contendo objetos com as seguintes propriedades:
 
@@ -66,6 +66,106 @@ A configuração `LANGUAGES` deve conter uma lista contendo objetos com as segui
 ```
 LANGUAGES=[ { initials: 'en', name: 'American English', }, { initials: 'ptbr', name: 'Portugês do Brasil', }, ]
 ```
+
+## Tópicos
+
+Vejamos como adicionar tópicos na documentação.
+
+Dentro do diretório `articles`, adicione novos diretórios nomeados com a propriede `number` de cada versão adicionada nas configurações em `VERSIONS`.
+
+Dentro de cada um destes diretórios teremos um arquivo `topics.json` que conterá os tópicos exibidos na documentação para esta versão e também outros diretórios que conterão os artigos da documentação, mas veremos os artigos mais para frente, vamos focar no `topics.json`.
+
+O `topics.json` deverá conter um array contendo objetos para cada tópico da documentação.
+
+Estes objetos possuem as seguintes propriedades:
+
+| Nome | Descrição |
+|---|---|---|
+| id | A identificação do tópico, este valor deverá ser usado no nome do diretório do artigo relacionado (veremos em detalhes em breve) |
+| label | Nome do tópico, deve conter um JSON contendo propriedades nomeadas com a sigla dos idiomas e com valores contendo o nome do tópico no idioma em questão
+| article | Se informado como `false`, o tópico não irá carregar um artigo. |
+| children | Lista de tópicos filhos  |
+
+*Exemplo:*
+```
+[
+    {
+        "id": "level1",
+        "label": {
+            "ptbr": "Nivel 1",
+            "en": "Level 1"
+        },
+        "children": [
+            {
+                "id": "level.1.1",
+                "label": {
+                    "ptbr": "Nível 1.1",
+                    "en": "Level 1.1"
+                }
+            }
+        ]
+    },
+    {
+        "id": "level2",
+        "article": false,
+        "label": {
+            "ptbr": "Nivel 2",
+            "en": "Level 2"
+        },
+        "children": [
+            {
+                "id": "level.2.1",
+                "label": {
+                    "ptbr": "Nível 2.1",
+                    "en": "Level 2.1"
+                }
+            }
+        ]
+    }
+]
+```
+
+> Note que, como cada versão possui seu próprio  `topics.json`, sempre que a versão da documentação mudar, os tópicos também mudarão.
+
+> Note que é possível ter uma versão sem `topics.json`, neste caso o **Tot** irá carregar o primiro `topics.json` existente nas versões anteriores. Isso evita de precisar ficar replicando `topics.json` a cada pequena mudança de versão, mas garanta ter um  `topics.json` ao menos na primeira versão.
+
+## Artigos
+
+O que é uma documentação sem os artigos explicando um determinado assunto? Vamos criar eles!
+
+Lembra que criamos um diretório para cada versão e que dentro de cada um deles criamos um `topics.json` o qual contém uma lista de tópicos, cada um com um id?
+
+Vamos agora, dentro dos diretórios das versões, criar novos diretórios nomeados com os ids de cada um dos tópicos informados.
+
+Por exemplo: No `topics.json` exemplificado acima, temos os tópicos com id `level1` e `level2`, logo criamos os diretórios `level1` e `level2`.
+
+Dentro destes diretórios, criarems arquivos *markdown* para cada um dos idiomas configurados no arquivo `.env`. Por exemplo: Se temos os idiomar *ptbr* e *en*, vamos ter os arquivos `ptbr.md` e `en.md`.
+
+Estes arquivos conterão o conteúdo do artigo no idioma em questão, ou seja, o `ptbr.md` conterá o conteúdo do artigo em portugês do Brasil e o `en.md` o conteúdo do artigo em inglês americano.
+
+> Note que arquivos *markdown* aceitam tando código *markdown*, como *HTML* e até mesmo um misto entre eles. <a href="https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open" target="_blank">Consulte aqui para aprender mais sobre *markdown*</a>.
+
+> Note que, caso não seja criado um arquivo para um idioma e este seja solicitado, o **Tot** irá carregar no idioma padrão configurado no arquivo `.env`.
+
+> Note que não é preciso adicionar o título do tópico, ele já será automaticamente adicionado como cabeçalho de nível 1 (`h1` / `#`).
+
+### Links Entre Artigos
+
+Caso queira criar um link dentro de um artigo que envie para outro artigo é muito simples, veja:
+
+*Exemplo em Markdown*
+
+```
+[Meu Link Para Outro Artigo](#idlevel1.idlevel1.2.idlevel1.2.1)
+```
+
+*Exemplo em HTML*
+
+```
+<a href="#idlevel1.idlevel1.2.idlevel1.2.1">Meu Link Para Outro Artigo</a>
+```
+
+Explicando: Comece o link com `#` e adicione o id do tópico desejado, caso deseje um tópico que seja filho de oturo (ou outros) basta ir adicionando os ids em ordem e separando-os por um `.` ponto.
 
 ## Cores
 
