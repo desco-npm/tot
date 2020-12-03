@@ -82,7 +82,7 @@ O `topics.json` deverá conter um array contendo objetos para cada tópico da do
 Estes objetos possuem as seguintes propriedades:
 
 | Nome | Descrição |
-|---|---|---|
+|---|---|
 | id | A identificação do tópico, este valor deverá ser usado no nome do diretório do artigo relacionado (veremos em detalhes em breve) |
 | label | Nome do tópico, deve conter um JSON contendo propriedades nomeadas com a sigla dos idiomas e com valores contendo o nome do tópico no idioma em questão
 | article | Se informado como `false`, o tópico não irá carregar um artigo. |
