@@ -1,5 +1,5 @@
 # @desco/tot
-![logo](/assets/logo.png)
+![logo](initial/logo.png)
 
 >[Ver a documentação em Portugês Brasileiro](README.md)
 
