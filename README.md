@@ -1,8 +1,10 @@
 # @desco/tot
 
+>[View documentation in American English](README.en.md)
+
 ## Instalação
 
-```
+```bash 
 npm init
 npm install @desco/tot
 cp node_modules/@desco/tot/initial/* .
@@ -48,7 +50,7 @@ A configuração `VERSIONS` deve conter uma lista contendo objetos com as seguin
 
 *Exemplo:*
 
-```
+```js
 VERSIONS=[ { number: '1.0.0', }, { number: '1.0.1', }, { number: '1.2.9', }, ]
 ```
 
@@ -63,7 +65,7 @@ A configuração `LANGUAGES` deve conter uma lista contendo objetos com as segui
 
 *Exemplo:*
 
-```
+```bash
 LANGUAGES=[ { initials: 'en', name: 'American English', }, { initials: 'ptbr', name: 'Portugês do Brasil', }, ]
 ```
 
@@ -87,7 +89,7 @@ Estes objetos possuem as seguintes propriedades:
 | children | Lista de tópicos filhos  |
 
 *Exemplo:*
-```
+```json
 [
     {
         "id": "level1",
@@ -143,7 +145,7 @@ Dentro destes diretórios, criarems arquivos *markdown* para cada um dos idiomas
 
 Estes arquivos conterão o conteúdo do artigo no idioma em questão, ou seja, o `ptbr.md` conterá o conteúdo do artigo em portugês do Brasil e o `en.md` o conteúdo do artigo em inglês americano.
 
-> Note que arquivos *markdown* aceitam tando código *markdown*, como *HTML* e até mesmo um misto entre eles. <a href="https://docs.pipz.com/central-de-ajuda/learning-center/guia-basico-de-markdown#open" target="_blank">Consulte aqui para aprender mais sobre *markdown*</a>.
+> Note que arquivos *markdown* aceitam tando código *markdown*, como *HTML* e até mesmo um misto entre eles. <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">Consulte aqui para aprender mais sobre *markdown*</a>.
 
 > Note que, caso não seja criado um arquivo para um idioma e este seja solicitado, o **Tot** irá carregar no idioma padrão configurado no arquivo `.env`.
 
@@ -155,13 +157,13 @@ Caso queira criar um link dentro de um artigo que envie para outro artigo é mui
 
 *Exemplo em Markdown*
 
-```
+```markdown
 [Meu Link Para Outro Artigo](#idlevel1.idlevel1.2.idlevel1.2.1)
 ```
 
 *Exemplo em HTML*
 
-```
+```html
 <a href="#idlevel1.idlevel1.2.idlevel1.2.1">Meu Link Para Outro Artigo</a>
 ```
 
@@ -183,7 +185,7 @@ Para alterar a logo, simplesmente sobrescreva o arquivo `logo.png` pela logo des
 
 Apenas rode os seguintes comandos, cada um em uma linha de comando, para executar o front e o back.
 
-```
+```bash 
 npm run front
 npm run back
 ```
