@@ -1,6 +1,6 @@
 {
   "name": "@desco/tot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "scripts": {
     "link": "node link",
@@ -30,9 +30,7 @@
     "path": "^0.12.7",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9",
-    "vuelidate": "^0.7.6"
-  },
-  "devDependencies": {
+    "vuelidate": "^0.7.6",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
