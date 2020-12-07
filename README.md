@@ -87,6 +87,7 @@ Estes objetos possuem as seguintes propriedades:
 | id | A identificação do tópico, este valor deverá ser usado no nome do diretório do artigo relacionado (veremos em detalhes em breve) |
 | label | Nome do tópico, deve conter um JSON contendo propriedades nomeadas com a sigla dos idiomas e com valores contendo o nome do tópico no idioma em questão
 | article | Se informado como `false`, o tópico não irá carregar um artigo. |
+| tree | Se informado como `false`, o tópico não irá aparecer na árvore de tópicos. |
 | children | Lista de tópicos filhos  |
 
 *Exemplo:*
@@ -124,6 +125,14 @@ Estes objetos possuem as seguintes propriedades:
                 }
             }
         ]
+    },
+    {
+        "id": "NoTree",
+        "tree": false,
+        "label": {
+            "ptbr": "Sem Árvore",
+            "en": "NoTree"
+        }
     }
 ]
 ```

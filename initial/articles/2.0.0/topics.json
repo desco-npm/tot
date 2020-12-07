@@ -31,5 +31,13 @@
                 }
             }
         ]
+    },
+    {
+        "id": "NoTree",
+        "tree": false,
+        "label": {
+            "ptbr": "Sem Árvore",
+            "en": "NoTree"
+        }
     }
 ]

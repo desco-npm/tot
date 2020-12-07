@@ -98,7 +98,7 @@
       async listTopics () {
         if (!this.version.number || !this.language.initials) return 
 
-        return this.topics = await TopicService.list()
+        return this.topics = await TopicService.listTree()
       }
     },
     async mounted () {
