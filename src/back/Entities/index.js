@@ -6,11 +6,11 @@ global.GenericEntity = class GenericEntity {
     }
 
     defaultRouter () {
-        global.Express.get('/' + this.name, async (req, res) => {
+        global.Express.get('/' + this.name + '/list', async (req, res) => {
             res.json(await this.list(req))
         })
 
-        global.Express.get('/' + this.name + '/:id', async (req, res) => {
+        global.Express.get('/' + this.name + '/read/:id', async (req, res) => {
             this.read(req.params.id, req)
                 .then(resp => {
                     return res.json(resp)

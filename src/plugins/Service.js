@@ -6,13 +6,19 @@ class Service {
     }
 
     list () {
-        return Http.get(`${this.name}`).then(resp => {
+        return Http.get(`${this.name}/list`).then(resp => {
             return resp.data
         })
     }
 
     get (_id) {
-        return Http.get(`${this.name}/${_id}`).then(resp => {
+        return Http.get(`${this.name}/read/${_id}`).then(resp => {
+            return resp.data
+        })
+    }
+
+    other (_name) {
+        return Http.get(`${this.name}/${_name}`).then(resp => {
             return resp.data
         })
     }
