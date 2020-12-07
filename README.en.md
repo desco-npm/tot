@@ -87,6 +87,7 @@ These objects have the following properties:
 | id | The topic identification, this value should be used in the directory name of the related article (we will see in detail soon) |
 | label | Topic name, must contain a JSON containing properties named with the acronym of the languages and with values containing the name of the topic in the language in question
 | article | If entered as `false`, the topic will not load an article. |
+| tree | If entered as `false`, the topic will not appear in the topic tree. |
 | children | List of child topics |
 
 *Example:*
