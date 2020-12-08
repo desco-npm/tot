@@ -1,7 +1,7 @@
 <template lang="pug">
   div#app
     el-row#Template
-      el-col#Side(:span="parseInt(sizeSide)")
+      el-col#Side(:span="parseInt(sizeSide)" v-scrollbar="scrollConfig")
         div.side-top
           div#FrontConfig
             el-dropdown(trigger="click" placement="bottom" @command="changeVersion")
@@ -39,7 +39,7 @@
         )
           span(slot-scope="{ data, }")
             | {{data.label[language.initials]}}
-      el-col#Content(v-if="configured" :span="parseInt(24 - sizeSide)")
+      el-col#Content(v-if="configured" :span="parseInt(24 - sizeSide)" v-scrollbar="scrollConfig")
         router-view
 </template>
 
@@ -72,6 +72,17 @@
         topics: [],
         article: { content: '', },
         sizeSide: process.env.VUE_APP_SIZE_SIDE || 4,
+        scrollConfig: {
+          x: false,
+          // widthOnHover: 12,
+          // width: 12,
+          // skidwayStyle: {
+          //   'background-color': 'blue',
+          // },
+          // sliderStyle: {
+          //   'background-color': 'red',
+          // },
+        }
       }
     },
     methods: {
@@ -160,7 +171,11 @@
   @import "~@/assets/scss/fonts/index";
 
   body {
-    overflow: hidden;
+    &,
+    #Content,
+    #Side {
+      overflow: hidden !important;
+    }
     
     #app {
       font-family: "Roboto Slab";
@@ -177,10 +192,14 @@
           height: 100%;
         }
 
-        #Content,
-        #Side {
-          overflow-y: auto;
-          }
+          .sliderY {
+            background-color: $scrollBackgroundCollor;
+
+            .skidwayY {
+              background-color: $scrollSliderBackgroundCollor;
+            }
+        }
+
 
         #Side {
           background-color: $sideBackgroundCollor;
