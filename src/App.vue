@@ -34,6 +34,7 @@
           ref="Topics"
           :data="topics"
           :filter-node-method="filterTopics"
+          accordion
           @node-click="onTopicClick"
         )
           span(slot-scope="{ data, }")
