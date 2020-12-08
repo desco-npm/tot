@@ -43,9 +43,6 @@
 </template>
 
 <script>
-  // TODO: Componente de exemplo
-  // TODO: Páginação em todas as páginas
-
   import Http from '@/plugins/Http'
 
   import VersionService from '@/entities/Version/service'
@@ -102,6 +99,8 @@
       }
     },
     async mounted () {
+      document.title = process.env.VUE_APP_TITULO
+
       this.versions = await VersionService.list()
       this.version = this.$route.params.version
         ? { number: this.$route.params.version, }
