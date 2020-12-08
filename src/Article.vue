@@ -56,8 +56,6 @@
               a.addEventListener('click', async e => {
                 e.preventDefault()
 
-                document.getElementById('Content').scrollTop = 0
-
                 toArticle(href.split('#')[1], _vnode.context.$router)
               })
             }
