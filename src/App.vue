@@ -318,6 +318,7 @@
 
           h4 {
             font-size: $titleBase - (.25 * 4);
+            font-weight: bold;
           }
 
           h5 {
