@@ -3,6 +3,18 @@
 
 >[View documentation in American English](README.en.md)
 
+## Sobre
+
+O **Tot** é um pacote responsável por prover um ambiente de documentação para seus projetos com:
+
+* Versões
+* Multi-idiomas
+* Tópicos
+* Artigos
+* Filtros
+* Customização de cores
+* Configuração
+
 ## Instalação
 
 ```bash 

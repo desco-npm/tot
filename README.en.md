@@ -3,6 +3,18 @@
 
 >[Ver a documentação em Portugês Brasileiro](README.md)
 
+## About
+
+** Tot ** is a package responsible for providing a documentation environment for your projects with:
+
+* Versions
+* Multi-languages
+* Topics
+* Articles
+* Filters
+* Color customization
+* Configuration
+
 ## Installation
 
 ```bash 
