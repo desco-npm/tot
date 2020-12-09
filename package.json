@@ -39,7 +39,6 @@
     "sass-loader": "^10.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9",
-    "vue-scrollbar-directive": "0.0.4",
     "vue-template-compiler": "^2.6.11",
     "vuebar": "0.0.20",
     "vuelidate": "^0.7.6"
