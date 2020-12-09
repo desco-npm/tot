@@ -52,6 +52,7 @@ class Article extends global.GenericEntity {
         const topics = require(global.pathJoin(addrs.base, 'topics.json'))
 
         return {
+            id: _id,
             label: getTitle(topics, _id),
             content: await global.markdownToHtml({ path: addrs.full, }),
         }

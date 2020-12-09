@@ -33,15 +33,17 @@
         el-tree#Topics(
           ref="Topics"
           :data="topics"
-          :filter-node-method="filterTopics"
           accordion
+          node-key="id"
+          :default-expanded-keys="defaultExpandedTreeKeys"
+          :filter-node-method="filterTopics"
           @node-click="onTopicClick"
           v-scrollbar="scrollConfig"
         )
           span(slot-scope="{ data, }")
             | {{data.label[language.initials]}}
       el-col#Content(v-if="configured" :span="parseInt(24 - sizeSide)" v-scrollbar="scrollConfig")
-        router-view
+        router-view(@load="loadArticle")
 </template>
 
 <script>
@@ -73,20 +75,14 @@
         topics: [],
         article: { content: '', },
         sizeSide: process.env.VUE_APP_SIZE_SIDE || 4,
-        scrollConfig: {
-          x: false,
-          // widthOnHover: 12,
-          // width: 12,
-          // skidwayStyle: {
-          //   'background-color': 'blue',
-          // },
-          // sliderStyle: {
-          //   'background-color': 'red',
-          // },
-        }
+        scrollConfig: { x: false, },
+        defaultExpandedTreeKeys: [],
       }
     },
     methods: {
+      loadArticle (_article) {
+        this.defaultExpandedTreeKeys = [ _article.id, ]
+      },
       filterTopics(_value, _data) {
         if (!_value) return true
 
@@ -124,8 +120,6 @@
       this.language = this.languages.filter(i => {
         return i.initials === (this.$route.params.lang || process.env.VUE_APP_DEFAULT_LANGUAGE)
       })[0]
-
-      console.log(this.$route.params, this.$route.params.lang)
 
       this.configured = true
 
