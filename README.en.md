@@ -5,7 +5,7 @@
 
 ## About
 
-** Tot ** is a package responsible for providing a documentation environment for your projects with:
+**Tot** is a package responsible for providing a documentation environment for your projects with:
 
 * Versions
 * Multi-languages
