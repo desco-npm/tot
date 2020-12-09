@@ -1,7 +1,7 @@
 <template lang="pug">
   div#app
     el-row#Template
-      el-col#Side(:span="parseInt(sizeSide)" v-scrollbar="scrollConfig")
+      el-col#Side(:span="parseInt(sizeSide)")
         div.side-top
           div#FrontConfig
             el-dropdown(trigger="click" placement="bottom" @command="changeVersion")
@@ -36,6 +36,7 @@
           :filter-node-method="filterTopics"
           accordion
           @node-click="onTopicClick"
+          v-scrollbar="scrollConfig"
         )
           span(slot-scope="{ data, }")
             | {{data.label[language.initials]}}
@@ -262,6 +263,7 @@
 
         .el-tree#Topics {
           background-color: transparent;
+          flex: 1 !important;
 
           .el-tree-node {
             .el-tree-node__content {
