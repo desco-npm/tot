@@ -47,6 +47,8 @@
 </template>
 
 <script>
+  import clone from 'clone'
+
   import Http from '@/plugins/Http'
 
   import VersionService from '@/entities/Version/service'
@@ -84,7 +86,11 @@
         this.defaultExpandedTreeKeys = [ _article.id, ]
       },
       filterTopics(_value, _data) {
-        if (!_value) return true
+        if (!_value) {
+          this.topics = clone(this.topics)
+
+          return true
+        }
 
         return (
           _data.label[this.language.initials].toLowerCase().indexOf(_value.toLowerCase()) !== -1
