@@ -30,19 +30,21 @@
             v-model="search"
             :placeholder="searchTopicsPlaceholder"
           )
-        el-tree#Topics(
-          ref="Topics"
-          :data="topics"
-          accordion
-          node-key="id"
-          :default-expanded-keys="defaultExpandedTreeKeys"
-          :filter-node-method="filterTopics"
-          @node-click="onTopicClick"
-          v-scrollbar="scrollConfig"
-        )
-          span(slot-scope="{ data, }")
-            | {{data.label[language.initials]}}
-      el-col#Content(v-if="configured" :span="parseInt(24 - sizeSide)" v-scrollbar="scrollConfig")
+        div#Topics(v-bar="scrollConfig" ref="TopicsArea")
+          el-tree(
+            ref="Topics"
+            :data="topics"
+            accordion
+            node-key="id"
+            :default-expanded-keys="defaultExpandedTreeKeys"
+            :filter-node-method="filterTopics"
+            @node-click="onTopicClick"
+            @node-expand="toogleNodeTree"
+            @node-collapse="toogleNodeTree"
+          )
+            span(slot-scope="{ data, }")
+              | {{data.label[language.initials]}}
+      el-col#Content(v-if="configured" :span="parseInt(24 - sizeSide)" v-bar="scrollConfig")
         router-view(@load="loadArticle")
 </template>
 
@@ -77,7 +79,7 @@
         topics: [],
         article: { content: '', },
         sizeSide: process.env.VUE_APP_SIZE_SIDE || 4,
-        scrollConfig: { x: false, },
+        scrollConfig: { preventParentScroll: true, scrollThrottle: 30, },
         defaultExpandedTreeKeys: [],
       }
     },
@@ -101,6 +103,11 @@
 
         toArticle(_topic.id, this.$router)
       },
+      toogleNodeTree () {
+        window.setTimeout(() => {
+          this.$vuebar.refreshScrollbar(this.$refs.TopicsArea)
+        }, 500)
+      },
       changeVersion (_version) {
         this.version = _version
       },
@@ -114,8 +121,6 @@
       }
     },
     async mounted () {
-      document.title = process.env.VUE_APP_TITULO
-
       this.versions = await VersionService.list()
       this.version = this.$route.params.version
         ? { number: this.$route.params.version, }
@@ -169,12 +174,12 @@
 
 <style lang="scss">
   @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/scroll";
   @import "~@/assets/scss/fonts/index";
 
   body {
     &,
-    #Content,
-    #Side {
+    * {
       overflow: hidden !important;
     }
     
@@ -192,15 +197,6 @@
         #Content {
           height: 100%;
         }
-
-          .sliderY {
-            background-color: $scrollBackgroundCollor;
-
-            .skidwayY {
-              background-color: $scrollSliderBackgroundCollor;
-            }
-        }
-
 
         #Side {
           background-color: $sideBackgroundCollor;
@@ -261,39 +257,44 @@
           }
         }
 
-        .el-tree#Topics {
-          background-color: transparent;
+        #Topics {
           flex: 1 !important;
+          padding-bottom: 1rem;
 
-          .el-tree-node {
-            .el-tree-node__content {
-              &,
-              .el-tree-node__label,
-              .el-tree-node__expand-icon {
-                color: $sideTreeItemTextColor;
-              }
-
-              &:hover {
-                background-color: $sideTreeItemHoverBackgroundColor;
-
+          .el-tree {
+            background-color: transparent;
+  
+            .el-tree-node {
+              .el-tree-node__content {
                 &,
                 .el-tree-node__label,
                 .el-tree-node__expand-icon {
-                  color: $sideTreeItemHoverTextColor;
+                  color: $sideTreeItemTextColor;
+                }
+  
+                &:hover {
+                  background-color: $sideTreeItemHoverBackgroundColor;
+  
+                  &,
+                  .el-tree-node__label,
+                  .el-tree-node__expand-icon {
+                    color: $sideTreeItemHoverTextColor;
+                  }
+                }
+              }
+  
+              &:focus {
+                .el-tree-node__content:not(:hover) {
+                  background-color: transparent !important;
                 }
               }
             }
-
-            &:focus {
-              .el-tree-node__content:not(:hover) {
-                background-color: transparent !important;
-              }
+  
+            .el-tree__empty-block .el-tree__empty-text{
+              color: $sideTreeNoItemsTextCollor;
             }
           }
 
-          .el-tree__empty-block .el-tree__empty-text{
-            color: $sideTreeNoItemsTextCollor;
-          }
         }
 
         #Content {
@@ -438,5 +439,18 @@
         }
       }
     }
+  }
+
+  .vb > .vb-dragger:hover > .vb-dragger-styler {
+    background-color: $hoverScrollBackgroundCollor;
+  }
+
+  .vb > .vb-dragger > .vb-dragger-styler {
+    background-color: $normalScrollBackgroundCollor
+    
+  }
+
+  .vb.vb-dragging-phantom > .vb-dragger > .vb-dragger-styler { 
+    background-color: $selectedScrollBackgroundCollor;
   }
 </style>

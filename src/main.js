@@ -1,12 +1,14 @@
 import Vue from 'vue'
-import vueScrollbarDirective from 'vue-scrollbar-directive'
+import Vuebar from 'vuebar';
 import App from './App.vue'
 
 import { router, } from './imports'
- 
-Vue.use(vueScrollbarDirective)
+
+Vue.use(Vuebar);
 
 Vue.config.productionTip = false
+
+document.title = process.env.VUE_APP_TITULO
 
 new Vue({
   render: h => h(App),

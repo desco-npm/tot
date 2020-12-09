@@ -10,8 +10,9 @@ $collor9: #516E85;
 $collor10: #494a4b;
 $collor11: #FFFFFF;
 
-$scrollBackgroundCollor: $collor9;
-$scrollSliderBackgroundCollor: $collor8;
+$normalScrollBackgroundCollor: transparentize($collor8, 0.75);
+$hoverScrollBackgroundCollor: transparentize($collor9, 0);
+$selectedScrollBackgroundCollor: transparentize($collor9, 0);
 
 $sideBackgroundCollor: $collor6;
 $sideTextCollor: $collor11;
