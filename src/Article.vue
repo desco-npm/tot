@@ -37,7 +37,11 @@
       async fetch () {
         ArticleService.get(this.$route.params.id)
           .then(resp => {
-            this.article = resp
+            this.article = {}
+
+            this.$nextTick(() => {
+              this.article = resp
+            })
 
             this.$emit('load', this.article)
           })
