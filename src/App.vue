@@ -313,8 +313,20 @@
 
         #Content {
           background-color: $contentBackgroundCollor;
-          padding: 1rem;
           $color: $contentTextCollor;
+          padding: 1rem;
+          padding-right: 2rem;
+
+          .vb-content {
+            padding-top: 1rem;
+
+            table,
+            pre,
+            blockquote,
+            #ArticlePaginate {
+              margin-right: 1.5rem;
+            }
+          }
 
           p,
           h1, h2, h3, h4, h5, h6,
@@ -387,7 +399,6 @@
             color: $contentPreTextCollor;
             overflow: hidden;
             padding: .5rem;
-            margin-right: 1rem;
 
             code {
               background-color: transparent;
@@ -408,7 +419,7 @@
             padding: .5rem;
             font-style: italic;
             font-weight: bold;
-            margin: 2rem 1rem 2rem 0;
+            margin: 2rem unset 2rem 0;
             background-color: $contentBlockquoteBackgroundColor;
             color: $contentBlockquoteTextColor;
 
@@ -456,7 +467,6 @@
             background: $contentPaginateBackgroundCollor;
             border: 2px groove $contentPaginateBorderCollor;
             padding: .5rem;
-            margin-right: 1rem;
 
             .el-step.is-center {
               &.preview,
