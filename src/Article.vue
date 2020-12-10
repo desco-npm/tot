@@ -6,14 +6,14 @@
       el-step.preview(
         v-if="article.preview"
         :title="article.preview.label"
-        icon="el-icon-arrow-left"
+        :icon="article.preview.icon || 'el-icon-arrow-left'"
         @click.native="paginate(article.preview)"
       )
-      el-step(:title="article.label" icon="el-icon-news")
+      el-step(:title="article.label" :icon="article.icon || 'el-icon-news'")
       el-step.next(
         v-if="article.next"
         :title="article.next.label"
-        icon="el-icon-arrow-right"
+        :icon="article.next.icon || 'el-icon-arrow-right'"
         @click.native="paginate(article.next)"
       )
 </template>

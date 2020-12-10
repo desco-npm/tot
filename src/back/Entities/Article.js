@@ -17,7 +17,7 @@ class Article extends global.GenericEntity {
             return { base: addrsBase, full: addrs, }
         }
 
-        const getTitle = (_topics, _id) => {
+        const getArticle = (_topics, _id) => {
             const ids = _id.split('.')
             const id = ids.shift()
 
@@ -26,10 +26,10 @@ class Article extends global.GenericEntity {
             })[0]
 
             if (ids.length > 0) {
-                return getTitle(topic.children, ids.join('.'))
+                return getArticle(topic.children, ids.join('.'))
             }
             else {
-                return topic.label[headers.lang]
+                return topic
             }
         }
 
@@ -57,12 +57,13 @@ class Article extends global.GenericEntity {
         const next = await Topic.next({ headers, }, _id)
 
         const toReturn = {
-            id: _id,
-            label: getTitle(topics, _id),
-            content,
+            ...getArticle(topics, _id),
             preview: preview ? { ...preview, label: preview.label[headers.lang], } : false,
             next: next ? { ...next, label: next.label[headers.lang], } : false,
+            content,
         }
+
+        toReturn.label = toReturn.label[headers.lang]
 
         return toReturn
     }

@@ -43,6 +43,7 @@
             @node-collapse="toogleNodeTree"
           )
             span(slot-scope="{ data, }")
+              i(v-if="data.icon" :class="data.icon")
               | {{data.label[language.initials]}}
       el-col#Content(v-if="configured" :span="parseInt(24 - sizeSide)" v-bar="scrollConfig")
         router-view(@load="loadArticle")
@@ -284,6 +285,11 @@
                 .el-tree-node__label,
                 .el-tree-node__expand-icon {
                   color: $sideTreeItemTextColor;
+
+                  i,
+                  svg {
+                    margin-right: .25rem;
+                  }
                 }
   
                 &:hover {
