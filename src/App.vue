@@ -79,7 +79,7 @@
         topics: [],
         article: { content: '', },
         sizeSide: process.env.VUE_APP_SIZE_SIDE || 4,
-        scrollConfig: { preventParentScroll: true, scrollThrottle: 30, },
+        scrollConfig: { scrollThrottle: 30, },
         defaultExpandedTreeKeys: [],
       }
     },
@@ -179,8 +179,9 @@
 
   body {
     &,
-    * {
-      overflow: hidden !important;
+    #Side,
+    #Content {
+      overflow: hidden;
     }
     
     #app {
@@ -258,7 +259,7 @@
         }
 
         #Topics {
-          flex: 1 !important;
+          flex: 1;
           padding-bottom: 1rem;
 
           .el-tree {
@@ -285,7 +286,7 @@
   
               &:focus {
                 .el-tree-node__content:not(:hover) {
-                  background-color: transparent !important;
+                  background-color: transparent;
                 }
               }
             }
@@ -373,6 +374,7 @@
             color: $contentPreTextCollor;
             overflow: hidden;
             padding: .5rem;
+            margin-right: 1rem;
 
             code {
               background-color: transparent;
@@ -436,9 +438,63 @@
           em {
             font-style: italic;
           }
+
+          #ArticlePaginate {
+            background: $contentPaginateBackgroundCollor;
+            border: 2px groove $contentPaginateBorderCollor;
+            padding: .5rem;
+            margin-right: 1rem;
+
+            .el-step.is-center {
+              &.preview,
+              &.next {
+                cursor: pointer;
+              }
+
+              .el-step__head.is-wait {
+                border-color: $contentPaginateCircleBorderCollor;
+                
+                .el-step__icon {
+                  &.is-text {
+                    .el-step__icon-inner {
+                      display: none;
+                    }
+
+                    .el-step__line {
+                      background-color: $contentPaginateLineCollor;
+                    }
+
+                    .el-step__title.is-wait {
+                      color: $contentPaginateTitleCollor;
+                    }
+                  }
+
+                  &.is-icon {
+                    border: 2px solid $contentPaginateCircleBorderCollor;
+                    border-radius: 50%;
+                    height: 24px;
+                    width: 24px;
+
+                    i {
+                      font-size: 1rem;
+                    }
+                  }
+                }
+
+
+                .el-step__icon {
+                  background: $contentPaginateCircleBackgroundCollor;
+                }
+              }
+            }
+          }
         }
       }
     }
+  }
+
+  .vb-content {
+    overflow: hidden !important;
   }
 
   .vb > .vb-dragger:hover > .vb-dragger-styler {

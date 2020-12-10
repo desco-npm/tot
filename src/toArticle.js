@@ -1,7 +1,9 @@
 import Http from '@/plugins/Http'
 
 export default async (_id, $router) => {
-  document.getElementById('Content').scrollTop = 0
+  window.setTimeout(() => {
+    document.querySelectorAll('#Content .vb-content')[0].scrollTop = 0
+  })
 
   $router.push({
     name: 'Article',

@@ -1,6 +1,7 @@
 const fs = require('fs-extra')
 
 const Version = require('./Version')
+const Topic = require('./Topic')
 
 class Article extends global.GenericEntity {
     async list () {
@@ -51,11 +52,19 @@ class Article extends global.GenericEntity {
 
         const topics = require(global.pathJoin(addrs.base, 'topics.json'))
 
-        return {
+        const content = await global.markdownToHtml({ path: addrs.full, })
+        const preview = await Topic.preview({ headers, }, _id)
+        const next = await Topic.next({ headers, }, _id)
+
+        const toReturn = {
             id: _id,
             label: getTitle(topics, _id),
-            content: await global.markdownToHtml({ path: addrs.full, }),
+            content,
+            preview: preview ? { ...preview, label: preview.label[headers.lang], } : false,
+            next: next ? { ...next, label: next.label[headers.lang], } : false,
         }
+
+        return toReturn
     }
 }
 
