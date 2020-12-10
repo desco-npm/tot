@@ -470,51 +470,41 @@
           }
 
           #ArticlePaginate {
-            background: $contentPaginateBackgroundCollor;
+            background-color: $contentPaginateBackgroundCollor;
             border: 2px groove $contentPaginateBorderCollor;
             padding: .5rem;
 
-            .el-step.is-center {
+            .el-step {
               &.preview,
               &.next {
                 cursor: pointer;
               }
 
-              .el-step__head.is-wait {
-                border-color: $contentPaginateCircleBorderCollor;
-                
-                .el-step__icon {
-                  &.is-text {
-                    .el-step__icon-inner {
-                      display: none;
-                    }
-
-                    .el-step__line {
-                      background-color: $contentPaginateLineCollor;
-                    }
-
-                    .el-step__title.is-wait {
-                      color: $contentPaginateTitleCollor;
-                    }
-                  }
-
-                  &.is-icon {
-                    border: 2px solid $contentPaginateCircleBorderCollor;
-                    border-radius: 50%;
-                    height: 24px;
-                    width: 24px;
-
-                    i,
-                    svg {
-                      font-size: 1rem;
-                      color: $contentPaginateCircleIconCollor;
-                    }
-                  }
+              .el-step__head {
+                .el-step__line {
+                  background-color: $contentPaginateLineCollor;
+                  top: 17px
                 }
 
-
                 .el-step__icon {
+                  $size: 36px;
+
                   background: $contentPaginateCircleBackgroundCollor;
+                  width: $size;
+                  height: $size;
+                  border-radius: 100%;
+                  border: 2px solid $contentPaginateCircleBorderCollor;
+
+                  i,
+                  svg {
+                    color: $contentPaginateCircleIconCollor;
+                  }
+                }
+              }
+
+              .el-step__main {
+                .el-step__title {
+                  color: $contentPaginateTitleCollor;
                 }
               }
             }
