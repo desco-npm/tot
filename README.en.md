@@ -11,7 +11,9 @@
 * Multi-languages
 * Topics
 * Articles
+* Icons for articles / topics
 * Filters
+* Pagination
 * Color customization
 * Configuration
 
@@ -98,15 +100,17 @@ These objects have the following properties:
 |---|---|
 | id | The topic identification, this value should be used in the directory name of the related article (we will see in detail soon) |
 | label | Topic name, must contain a JSON containing properties named with the acronym of the languages and with values containing the name of the topic in the language in question
-| article | If entered as `false`, the topic will not load an article. |
-| tree | If entered as `false`, the topic will not appear in the topic tree. |
+| icon | Class of the topic icon to be displayed in the tree and also in the pagination. See the icons for [FontAwesome] (https://fontawesome.com/icons?d=gallery) and [Element.io] (https://element.eleme.io/#/en-US/component/icon) to choose what you want |
+| tree | If entered as `false`, the topic will not appear in the topic tree or in the pagination |
+| article | If entered as `false`, the topic will not be clickable in the tree and will not appear in the pagination |
 | children | List of child topics |
 
-*Example:*
+*Exemplo:*
 ```json
 [
     {
         "id": "level1",
+        "icon": "fas fa-sort-numeric-up-alt",
         "label": {
             "ptbr": "Nivel 1",
             "en": "Level 1"
@@ -114,6 +118,7 @@ These objects have the following properties:
         "children": [
             {
                 "id": "level.1.1",
+                "icon": "fas fa-sort-numeric-up-alt",
                 "label": {
                     "ptbr": "Nível 1.1",
                     "en": "Level 1.1"
@@ -123,6 +128,7 @@ These objects have the following properties:
     },
     {
         "id": "level2",
+        "icon": "fas fa-sort-numeric-up-alt",
         "article": false,
         "label": {
             "ptbr": "Nivel 2",
@@ -131,12 +137,21 @@ These objects have the following properties:
         "children": [
             {
                 "id": "level.2.1",
+                "icon": "fas fa-sort-numeric-up-alt",
                 "label": {
                     "ptbr": "Nível 2.1",
                     "en": "Level 2.1"
                 }
             }
         ]
+    },
+    {
+        "id": "NoTree",
+        "tree": false,
+        "label": {
+            "ptbr": "Sem Árvore",
+            "en": "NoTree"
+        }
     }
 ]
 ```
@@ -144,6 +159,8 @@ These objects have the following properties:
 > Note that since each version has its own `topics.json`, whenever the documentation version changes, the topics will also change.
 
 > Note that it is possible to have a version without `topics.json`, in which case ** ot** will load the first` topics.json` existing in previous versions. This avoids having to keep replicating `topics.json` with every small version change, but make sure you have a` topics.json` at least in the first version.
+
+> Note that if you do not define `icon` the pagination will use standard icons.
 
 ## Articles
 
