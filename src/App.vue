@@ -85,11 +85,24 @@
     },
     methods: {
       loadArticle (_article) {
-        this.defaultExpandedTreeKeys = [ _article.id, ]
+        this.expandTreeNode(_article.id, true)
+      },
+      expandTreeNode (_id, _reset) {
+        if (_reset) {
+          this.resetTree()
+
+          this.defaultExpandedTreeKeys = []
+        }
+
+        this.defaultExpandedTreeKeys.push(_id)
+      },
+      resetTree () {
+        this.topics = clone(this.topics)
       },
       filterTopics(_value, _data) {
         if (!_value) {
-          this.topics = clone(this.topics)
+
+          this.resetTree()
 
           return true
         }
