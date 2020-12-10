@@ -504,7 +504,8 @@
                     height: 24px;
                     width: 24px;
 
-                    i {
+                    i,
+                    svg {
                       font-size: 1rem;
                       color: $contentPaginateCircleIconCollor;
                     }
