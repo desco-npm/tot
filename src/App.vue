@@ -477,6 +477,7 @@
 
                     i {
                       font-size: 1rem;
+                      color: $contentPaginateCircleIconCollor;
                     }
                   }
                 }
