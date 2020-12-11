@@ -218,7 +218,7 @@ To change the icon that appears in the browser bar, simply overwrite the `ico.pn
 
 > Note that, for better display, the icon must have dimensions of 16x16 pixels.
 
-## Getting Started
+## Starting for Development
 
 Just run the following commands, each on a command line, to execute the front and back.
 
@@ -226,3 +226,16 @@ Just run the following commands, each on a command line, to execute the front an
 npm run front
 npm run back
 ```
+
+## Building the Application
+
+To build a final version of the application frontend, run:
+
+`` bash
+npm run build
+``
+
+A * build * directory will be created at the root of the project, it will contain all the prepared files
+to run on your production server!
+
+> Note that `build` builds only the frontend, it will still be necessary to start the backend normally

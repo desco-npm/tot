@@ -217,7 +217,7 @@ Para alterar o ícone que aparece na barra do navegador, simplesmente sobrescrev
 
 > Note que, para melhor exibição, o ícone deve ter dimensões de 16x16 pixels.
 
-## Iniciando
+## Iniciando para Desenvolvimento
 
 Apenas rode os seguintes comandos, cada um em uma linha de comando, para executar o front e o back.
 
@@ -225,3 +225,16 @@ Apenas rode os seguintes comandos, cada um em uma linha de comando, para executa
 npm run front
 npm run back
 ```
+
+## Construindo a Aplicação
+
+Para construir uma versão final do frontend da aplicação, rode: 
+
+```bash
+npm run build
+```
+
+Um diretório *build* será criado na raiz do projeto, ele irá conter todos os arquivos prepadados
+para rodar no seu servidor de produção!
+
+> Note que `build` constrói apenas o frontend, ainda será necessário iniciar o backend normalmente

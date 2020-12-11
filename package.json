@@ -1,13 +1,13 @@
 {
   "name": "@desco/tot",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "private": false,
   "scripts": {
     "link": "node link",
     "front": "node link && vue-cli-service serve",
     "back": "node link && node src/back",
     "dev-back": "node link & nodemon src/back",
-    "build": "vue-cli-service build"
+    "build": "node link && vue-cli-service build && node move-build"
   },
   "dependencies": {
     "@desco/manage-file": "^1.0.0",
