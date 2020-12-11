@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "front": "cd node_modules/@desco/tot && npm run-script front",
-    "back": "cd node_modules/@desco/tot && npm run-script back"
+    "back": "cd node_modules/@desco/tot && npm run-script back",
+    "build": "cd node_modules/@desco/tot && npm run-script build"
   },
   "author": "",
   "license": "ISC",
