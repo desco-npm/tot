@@ -405,6 +405,7 @@
             color: $contentPreTextCollor;
             overflow: hidden;
             padding: .5rem;
+            overflow-x: auto;
 
             code {
               background-color: transparent;
