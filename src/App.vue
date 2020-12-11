@@ -45,7 +45,13 @@
             span(slot-scope="{ data, }")
               i(v-if="data.icon" :class="data.icon")
               | {{data.label[language.initials]}}
-      el-col#Content(v-if="configured" :span="parseInt(24 - sizeSide)" v-bar="scrollConfig")
+      el-col#Content(
+        tabindex="-1"
+        :span="parseInt(24 - sizeSide)"
+        v-if="configured"
+        v-bar="scrollConfig"
+        @keyup.native="contentKeyUp"
+      )
         router-view(@load="loadArticle")
 </template>
 
@@ -85,6 +91,33 @@
       }
     },
     methods: {
+      contentKeyUp (e) {
+        const Scroll = document.querySelectorAll('#Content .vb-content')[0]
+
+        const arrowDistance = 25
+        const pageDistance = window.innerHeight * 0.75
+        console.log(pageDistance)
+        switch (e.keyCode) {
+          // PageUp
+          case 33: Scroll.scrollTop -= pageDistance
+            break
+          // PageDown
+          case 34: Scroll.scrollTop += pageDistance
+            break
+          // END
+          case 35: Scroll.scrollTop = Scroll.scrollHeight
+            break
+          // HOME
+          case 36: Scroll.scrollTop = 0
+            break
+          // Down
+          case 40: Scroll.scrollTop += arrowDistance
+            break
+          // Up
+          case 38: Scroll.scrollTop -= arrowDistance
+            break
+        }
+      },
       loadArticle (_article) {
         this.expandTreeNode(_article.id, true)
       },
