@@ -53,17 +53,39 @@ class Article extends global.GenericEntity {
         const topics = require(global.pathJoin(addrs.base, 'topics.json'))
 
         const content = await global.markdownToHtml({ path: addrs.full, })
+        const article = getArticle(topics, _id)
         const preview = await Topic.preview({ headers, }, _id)
         const next = await Topic.next({ headers, }, _id)
 
         const toReturn = {
-            ...getArticle(topics, _id),
-            preview: preview ? { ...preview, label: preview.label[headers.lang], } : false,
-            next: next ? { ...next, label: next.label[headers.lang], } : false,
+            ...article,
+            label: article.label[headers.lang],
+            icon: article.icon || 'el-icon-news',
+            preview: preview
+                ?
+                    {
+                        ...preview,
+                        label: preview.label[headers.lang],
+                        icon: preview.icon || 'el-icon-arrow-left'
+                    }
+                :
+                {
+                    icon: 'fas fa-flag'
+                },
+            next: next
+                    ?
+                        {
+                            ...next,
+                            label: next.label[headers.lang],
+                            icon: next.icon || 'el-icon-arrow-right'
+                        }
+                    :
+                    {
+                        icon: 'fas fa-times'
+                    },
             content,
         }
-
-        toReturn.label = toReturn.label[headers.lang]
+        console.log(toReturn)
 
         return toReturn
     }

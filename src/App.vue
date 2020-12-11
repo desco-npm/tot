@@ -475,9 +475,14 @@
             padding: .5rem;
 
             .el-step {
-              &.preview,
-              &.next {
-                cursor: pointer;
+              .preview,
+              .next {
+                i,
+                svg {
+                  &:not(.fa-flag):not(.fa-times) {
+                    cursor: pointer;
+                  }
+                }
               }
 
               .el-step__head {
@@ -495,9 +500,11 @@
                   border-radius: 100%;
                   border: 2px solid $contentPaginateCircleBorderCollor;
 
-                  i,
-                  svg {
-                    color: $contentPaginateCircleIconCollor;
+                  span {
+                    i,
+                    svg {
+                      color: $contentPaginateCircleIconCollor;
+                    }
                   }
                 }
               }

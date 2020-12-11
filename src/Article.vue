@@ -2,20 +2,19 @@
   div
     h1 {{article.label}}
     span(v-html="article.content" v-link)
+    pre {{article}}
     el-steps#ArticlePaginate(align-center)
-      el-step.preview(
-        v-if="article.preview"
-        :title="article.preview.label"
-        :icon="article.preview.icon || 'el-icon-arrow-left'"
-        @click.native="paginate(article.preview)"
-      )
-      el-step(:title="article.label" :icon="article.icon || 'el-icon-news'")
-      el-step.next(
-        v-if="article.next"
-        :title="article.next.label"
-        :icon="article.next.icon || 'el-icon-arrow-right'"
-        @click.native="paginate(article.next)"
-      )
+      el-step(:title="article.preview.label")
+        template(slot="icon")
+          span.preview(@click="paginate(article.preview)")
+            i(:class="article.preview.icon")
+      el-step(:title="article.label")
+        template(slot="icon")
+           i(:class="article.icon")
+      el-step(:title="article.next.label")
+        template(slot="icon")
+          span.next(@click="paginate(article.next)")
+            i(:class="article.next.icon")
 </template>
 
 <script>
@@ -27,7 +26,10 @@
     name: 'Article',
     data () {
       return {
-        article: {},
+        article: {
+          preview: {},
+          next: {},
+        },
       }
     },
     async mounted () {
@@ -37,13 +39,7 @@
       async fetch () {
         ArticleService.get(this.$route.params.id)
           .then(resp => {
-            this.article = {}
-
-            this.$nextTick(() => {
-              this.article = resp
-            })
-
-            this.$emit('load', this.article)
+            this.article = resp
           })
           .catch(e => {
             let label
@@ -67,6 +63,8 @@
           })
       },
       paginate (_article) {
+        if (!_article.id) return
+
         toArticle(_article.id, this.$router)
 
         this.$vuebar.refreshScrollbar(this.$parent.$el)
