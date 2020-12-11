@@ -211,6 +211,12 @@ Para alterar a logo, simplesmente sobrescreva o arquivo `logo.png` pela logo des
 
 > Note que, para melhor exibição, a logo deve ter um formato com largura e altura iguais.
 
+## Ícone
+
+Para alterar o ícone que aparece na barra do navegador, simplesmente sobrescreva o arquivo `ico.png` pelo ícone desejado.
+
+> Note que, para melhor exibição, o ícone deve ter dimensões de 16x16 pixels.
+
 ## Iniciando
 
 Apenas rode os seguintes comandos, cada um em uma linha de comando, para executar o front e o back.

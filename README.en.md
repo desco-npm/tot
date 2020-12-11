@@ -212,6 +212,12 @@ To change the logo, simply overwrite the `logo.png` file with the desired logo.
 
 > Note that, for better display, the logo must have a format with equal width and height.
 
+## Icon
+
+To change the icon that appears in the browser bar, simply overwrite the `ico.png` file with the desired icon.
+
+> Note that, for better display, the icon must have dimensions of 16x16 pixels.
+
 ## Getting Started
 
 Just run the following commands, each on a command line, to execute the front and back.
