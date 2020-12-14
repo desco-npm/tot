@@ -2,9 +2,7 @@
   div.side
     div.side-top
       FrontConfig(@configured="fetch" @change="fetch")
-      span#Avatar
-        img(src="@/assets/images/logo.png")
-      label {{title}}
+      Logo
     span#TopicSearch
       el-input(
         prefix-icon="el-icon-search"
@@ -34,11 +32,12 @@
   import ConfigMixin from '@/mixins/Config'
   import TopicService from '@/entities/Topic/service'
   import FrontConfig from './Config'
+  import Logo from './Logo'
 
   export default {
     name: 'Side',
     mixins: [ ConfigMixin, ],
-    components: { FrontConfig, },
+    components: { FrontConfig, Logo, },
     props: {
       scrollConfig: Object,
     },
@@ -51,7 +50,6 @@
       return {
         configured: false,
         search: '',
-        title: process.env.VUE_APP_TITULO,
         topics: [],
         defaultExpandedTreeKeys: [],
       }
@@ -127,20 +125,6 @@
       background-color: $sideTopBackgroundCollor;
       padding: .5rem 0;
       color: $sideTextCollor;
-
-      #Avatar {
-        img {
-          width: 150px;
-          max-width: 100%;
-          border-radius: 100%;
-          margin: .5rem 0;
-          border: 2px solid $sideTopAvatarBorderCollor;
-        }
-      }
-
-      label {
-        font-weight: bold;
-      }
     }
 
     #TopicSearch {
