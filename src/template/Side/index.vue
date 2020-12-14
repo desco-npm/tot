@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import toArticle from '@/toArticle'
+  import ArticleMixin from '@/mixins/Article'
   import ConfigMixin from '@/mixins/Config'
   import FrontConfig from './Config'
   import Logo from './Logo'
@@ -17,7 +17,7 @@
 
   export default {
     name: 'Side',
-    mixins: [ ConfigMixin, ],
+    mixins: [ ConfigMixin, ArticleMixin, ],
     components: { FrontConfig, Logo, Search, Topics, },
     props: {
       scrollConfig: Object,
@@ -30,7 +30,7 @@
     },
     methods: {
       async fetch (_config) {
-        await toArticle(this.$route.params.id, this.$router)
+        await this.toArticle(this.$route.params.id)
 
         _config
 

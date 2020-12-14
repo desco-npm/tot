@@ -8,10 +8,11 @@
 <script>
   import ArticleService from '@/entities/Article/service'
   import ArticlePaginate from './Paginate'
-  import toArticle from '@/toArticle'
+  import ArticleMixin from '@/mixins/Article'
   
   export default {
     name: 'Article',
+    mixins: [ ArticleMixin, ],
     components: { ArticlePaginate, },
     data () {
       return {
@@ -63,7 +64,7 @@
               a.addEventListener('click', async e => {
                 e.preventDefault()
 
-                toArticle(href.split('#')[1], _vnode.context.$router)
+                this.toArticle(href.split('#')[1], _vnode.context.$router)
               })
             }
           })

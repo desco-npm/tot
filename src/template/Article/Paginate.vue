@@ -14,10 +14,11 @@
 </template>
 
 <script>
-  import toArticle from '@/toArticle'
+  import ArticleMixin from '@/mixins/Article'
   
   export default {
     name: 'ArticlePaginate',
+    mixins: [ ArticleMixin, ],
     props: {
       article: Object,
     },
@@ -25,7 +26,7 @@
       paginate (_article) {
         if (!_article.id) return
 
-        toArticle(_article.id, this.$router)
+        this.toArticle(_article.id)
 
         this.$vuebar.refreshScrollbar(this.$parent.$el)
       }

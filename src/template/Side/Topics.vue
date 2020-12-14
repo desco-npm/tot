@@ -18,13 +18,13 @@
 
 <script>
   import clone from 'clone'
-  import toArticle from '@/toArticle'
+  import ArticleMixin from '@/mixins/Article'
   import TopicService from '@/entities/Topic/service'
   import ConfigMixin from '@/mixins/Config'
 
   export default {
     name: 'Topics',
-    mixins: [ ConfigMixin, ],
+    mixins: [ ConfigMixin, ArticleMixin, ],
     props: {
       scrollConfig: Object,
       configured: Boolean,
@@ -54,7 +54,7 @@
       async onTopicClick (_topic) {
         if (_topic.article === false) return
 
-        toArticle(_topic.id, this.$router)
+        this.toArticle(_topic.id)
       },
       toogleNodeTree () {
         window.setTimeout(() => {
