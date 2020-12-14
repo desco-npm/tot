@@ -8,7 +8,7 @@
 </template>
 
 <script>
-  import toArticle from '../../toArticle'
+  import toArticle from '@/toArticle'
   import ConfigMixin from '@/mixins/Config'
   import FrontConfig from './Config'
   import Logo from './Logo'

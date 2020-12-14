@@ -14,7 +14,5 @@ export default async (_id, $router) => {
     },
   }
 
-  console.log(params)
-
   $router.push(params)
 }

@@ -18,7 +18,7 @@
 
 <script>
   import clone from 'clone'
-  import toArticle from '../../toArticle'
+  import toArticle from '@/toArticle'
   import TopicService from '@/entities/Topic/service'
   import ConfigMixin from '@/mixins/Config'
 
