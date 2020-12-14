@@ -19,6 +19,9 @@ export default {
       }
 
       router.push(params)
+    },
+    routedArticleId () {
+      return this.$route.params.id
     }
   }
 }

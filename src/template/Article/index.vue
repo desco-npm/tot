@@ -27,7 +27,7 @@
     },
     methods: {
       async fetch () {
-        ArticleService.get(this.$route.params.id)
+        ArticleService.get(this.routedArticleId())
           .then(resp => {
             this.article = resp
           })

@@ -40,13 +40,13 @@
       async fetch () {
         if (!this.configured) return
 
-        if (!this.$route.params.id) {
+        if (!this.routedArticleId()) {
           const firstTopic = await TopicService.first()
 
           this.toArticle(firstTopic.id)
         }
         else {
-          await this.toArticle(this.$route.params.id)
+          await this.toArticle(this.routedArticleId())
           await this.$refs.Topics.fetch()
         }
       },
