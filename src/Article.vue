@@ -2,7 +2,6 @@
   div
     h1 {{article.label}}
     span(v-html="article.content" v-link)
-    pre {{article}}
     el-steps#ArticlePaginate(align-center)
       el-step(:title="article.preview.label")
         template(slot="icon")

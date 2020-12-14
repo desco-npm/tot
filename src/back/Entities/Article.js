@@ -85,7 +85,6 @@ class Article extends global.GenericEntity {
                     },
             content,
         }
-        console.log(toReturn)
 
         return toReturn
     }

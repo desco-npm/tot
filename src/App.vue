@@ -96,7 +96,7 @@
 
         const arrowDistance = 25
         const pageDistance = window.innerHeight * 0.75
-        console.log(pageDistance)
+
         switch (e.keyCode) {
           // PageUp
           case 33: Scroll.scrollTop -= pageDistance
