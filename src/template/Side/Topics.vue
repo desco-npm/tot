@@ -13,7 +13,7 @@
     )
       span(slot-scope="{ data, }")
         i(v-if="data.icon" :class="data.icon")
-        | {{data.label[laguageInitials()]}}
+        | {{data.label[laguageInitials()] || data.label[defaultLaguageInitials()]}}
 </template>
 
 <script>
