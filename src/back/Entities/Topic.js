@@ -10,6 +10,10 @@ class Topic extends global.GenericEntity {
         global.Express.get('/' + this.name + '/tree', async (req, res) => {
             res.json(await this.list(req, true))
         })
+
+        global.Express.get('/' + this.name + '/first', async (req, res) => {
+            res.json((await this.list(req, true))[0])
+        })
     }
 
     async list ({ headers, }, _tree = false) {

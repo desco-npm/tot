@@ -73,8 +73,8 @@
 
         this.defaultExpandedTreeKeys.push(_id)
       },
-      async fetch (_config) {
-        this.topics = await this.listTopics(_config)
+      async fetch () {
+        this.topics = await this.listTopics()
       },
     },
     watch: {

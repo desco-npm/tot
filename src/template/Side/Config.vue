@@ -27,6 +27,11 @@
 
   export default {
     name: 'Config',
+    computed: {
+      config () {
+        return { version: this.version.number, language: this.language.initials, }
+      },
+    },
     data () {
       return {
         versions: [],
@@ -45,25 +50,25 @@
     },
     async mounted () {
       this.versions = await VersionService.list()
+      this.languages = await LanguageService.list()
+
       this.version = this.$route.params.version
         ? { number: this.$route.params.version, }
         : this.versions.reverse()[0]
-
-      this.languages = await LanguageService.list()
 
       this.language = this.languages.filter(i => {
         return i.initials === (this.$route.params.lang || process.env.VUE_APP_DEFAULT_LANGUAGE)
       })[0]
 
-      this.$emit('configured', { version: this.version.number, language: this.language.initials, })
+      this.$emit('configured', this.config)
     },
     watch: {
       version: {
         deep: true,
         async handler () {
           Http.defaults.headers.common['version'] = this.version.number
-
-          this.$emit('change', { version: this.version, language: this.language, })
+          
+          this.$emit('change', this.config)
         }
       },
       language: {
@@ -71,7 +76,7 @@
         async handler () {
           Http.defaults.headers.common['lang'] = this.language.initials
 
-          this.$emit('change', { version: this.version, language: this.language, })
+          this.$emit('change', this.config)
         }
       },
     }
