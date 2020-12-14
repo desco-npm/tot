@@ -5,5 +5,6 @@ import './fontawesome'
 import './element'
 
 import router from './router'
+import store from './vuex'
 
-export { router, }
+export { router, store, }

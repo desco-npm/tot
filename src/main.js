@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuebar from 'vuebar';
 import App from './App.vue'
 
-import { router, } from './imports'
+import { router, store, } from './imports'
 
 Vue.use(Vuebar);
 
@@ -13,4 +13,5 @@ document.title = process.env.VUE_APP_TITULO
 new Vue({
   render: h => h(App),
   router,
+  store,
 }).$mount('#app')

@@ -1,4 +1,5 @@
 import Http from '@/plugins/Http'
+import Store from '@/imports/vuex'
 
 class Service {
     constructor () {
@@ -6,21 +7,57 @@ class Service {
     }
 
     list () {
-        return Http.get(`${this.name}/list`).then(resp => {
-            return resp.data
-        })
+        const url = `${this.name}/list`
+
+        Store.commit('toogleLoading', url)
+
+        return Http.get(url)
+            .then(resp => {
+                Store.commit('toogleLoading', url)
+
+                return resp.data
+            })
+            .catch(e => {
+                Store.commit('toogleLoading', url)
+
+                return Promise.reject(e)
+            })
     }
 
     get (_id) {
-        return Http.get(`${this.name}/read/${_id}`).then(resp => {
-            return resp.data
-        })
+        const url = `${this.name}/read/${_id}`
+
+        Store.commit('toogleLoading', url)
+
+        return Http.get(url)
+            .then(resp => {
+                Store.commit('toogleLoading', url)
+
+                return resp.data
+            })
+            .catch(e => {
+                Store.commit('toogleLoading', url)
+
+                return Promise.reject(e)
+            })
     }
 
     other (_name) {
-        return Http.get(`${this.name}/${_name}`).then(resp => {
-            return resp.data
-        })
+        const url = `${this.name}/${_name}`
+
+        Store.commit('toogleLoading', url)
+
+        return Http.get(url)
+            .then(resp => {
+                Store.commit('toogleLoading', url)
+
+                return resp.data
+            })
+            .catch(e => {
+                Store.commit('toogleLoading', url)
+
+                return Promise.reject(e)
+            })
     }
 }
 

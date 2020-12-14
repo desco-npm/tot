@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#app
+  div#app(v-loading="$store.state.loadingStatus")
     el-row#Template
       el-col#Side(:span="parseInt(sizeSide)")
         Side(:scroll-config="scrollConfig" @configured="configured = true")
