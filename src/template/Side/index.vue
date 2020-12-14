@@ -1,24 +1,7 @@
 <template lang="pug">
   div.side
     div.side-top
-      div#FrontConfig
-        el-dropdown(trigger="click" placement="bottom" @command="changeVersion")
-          el-button#Version(round icon="fas fa-code-branch" size="mini")
-            span(v-if="version.number") v{{version.number}}
-          el-dropdown-menu(slot="dropdown")
-            el-dropdown-item(
-              v-for="(version, k) in versions" :key="k"
-              :command="version"
-            )
-              |v{{version.number}}
-        el-dropdown(trigger="click" placement="bottom" @command="changeLanguage")
-          el-button#Language(round icon="fas fa-globe-americas" size="mini") {{language.name}}
-          el-dropdown-menu(slot="dropdown")
-            el-dropdown-item(
-              v-for="(language, k) in languages" :key="k"
-              :command="language"
-            )
-              |{{language.name}}
+      FrontConfig(@configured="fetch" @change="fetch")
       span#Avatar
         img(src="@/assets/images/logo.png")
       label {{title}}
@@ -42,40 +25,33 @@
       )
         span(slot-scope="{ data, }")
           i(v-if="data.icon" :class="data.icon")
-          | {{data.label[language.initials]}}
+          | {{data.label[laguageInitials()]}}
 </template>
 
 <script>
   import clone from 'clone'
-
-  import Http from '@/plugins/Http'
-
-  import VersionService from '@/entities/Version/service'
-  import LanguageService from '@/entities/Language/service'
-  import TopicService from '@/entities/Topic/service'
-
   import toArticle from '../../toArticle'
+  import ConfigMixin from '@/mixins/Config'
+  import TopicService from '@/entities/Topic/service'
+  import FrontConfig from './Config'
 
   export default {
-    name: 'App',
-    components: {},
+    name: 'Side',
+    mixins: [ ConfigMixin, ],
+    components: { FrontConfig, },
     props: {
       scrollConfig: Object,
     },
     computed: {
       searchTopicsPlaceholder () {
-        return JSON.parse(process.env.VUE_APP_TOPIC_SEARCH_PLACEHOLDER)[this.language.initials]
-      }
+        return JSON.parse(process.env.VUE_APP_TOPIC_SEARCH_PLACEHOLDER)[this.laguageInitials()]
+      },
     },
     data () {
       return {
         configured: false,
         search: '',
         title: process.env.VUE_APP_TITULO,
-        versions: [],
-        version: {},
-        languages: [],
-        language: {},
         topics: [],
         defaultExpandedTreeKeys: [],
       }
@@ -93,7 +69,7 @@
         }
 
         return (
-          _data.label[this.language.initials].toLowerCase().indexOf(_value.toLowerCase()) !== -1
+          _data.label[this.laguageInitials()].toLowerCase().indexOf(_value.toLowerCase()) !== -1
         )
       },
       async onTopicClick (_topic) {
@@ -106,15 +82,7 @@
           this.$vuebar.refreshScrollbar(this.$refs.TopicsArea)
         }, 500)
       },
-      changeVersion (_version) {
-        this.version = _version
-      },
-      changeLanguage (_lang) {
-        this.language = _lang
-      },
       async listTopics () {
-        if (!this.version.number || !this.language.initials) return 
-
         return this.topics = await TopicService.listTree()
       },
       expandTreeNode (_id, _reset) {
@@ -126,60 +94,22 @@
 
         this.defaultExpandedTreeKeys.push(_id)
       },
-    },
-    async mounted () {
-      this.versions = await VersionService.list()
-      this.version = this.$route.params.version
-        ? { number: this.$route.params.version, }
-        : this.versions.reverse()[0]
+      async fetch (_config) {
+        await toArticle(this.$route.params.id, this.$router)
 
-      this.languages = await LanguageService.list()
+        this.topics = await this.listTopics(_config)
 
-      this.language = this.languages.filter(i => {
-        return i.initials === (this.$route.params.lang || process.env.VUE_APP_DEFAULT_LANGUAGE)
-      })[0]
+        if (!this.$route.params.id) {
+          this.onTopicClick(this.topics[0])
+        }
 
-      this.configured = true
-
-      this.topics = await this.listTopics()
-      
-      if (!this.$route.params.id) {
-        this.onTopicClick(this.topics[0])
+        this.$emit('configured')
       }
     },
     watch: {
-      version: {
-        deep: true,
-        async handler () {
-          Http.defaults.headers.common['version'] = this.version.number
-
-          if (!this.configured) return
-
-          await this.listTopics()
-
-          toArticle(this.$route.params.id, this.$router)
-        }
-      },
-      language: {
-        deep: true,
-        async handler () {
-          Http.defaults.headers.common['lang'] = this.language.initials
-
-          if (!this.configured) return
-
-          await this.listTopics()
-
-          toArticle(this.$route.params.id, this.$router)
-        }
-      },
       search () {
         this.$refs.Topics.filter(this.search)
       },
-      configured () {
-        if (this.configured === true) {
-          this.$emit('configured')
-        }
-      }
     }
   }
 </script>
@@ -197,23 +127,6 @@
       background-color: $sideTopBackgroundCollor;
       padding: .5rem 0;
       color: $sideTextCollor;
-
-      #FrontConfig {
-        display: flex;
-        justify-content: space-around;
-
-        #Version,
-        #Language {
-          background: $sideTopFrontConfigComboBackgroundCollor;
-          align-self: center;
-          color: $sideTopFrontConfigComboTextCollor;
-          border: $sideTopFrontConfigComboBorderCollor;
-
-          svg {
-            margin-right: .25rem;
-          }
-        }
-      }
 
       #Avatar {
         img {

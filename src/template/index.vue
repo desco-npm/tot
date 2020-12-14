@@ -17,7 +17,7 @@
   import Side from './Side'
 
   export default {
-    name: 'App',
+    name: 'Template',
     components: { Side, },
     data () {
       return {
