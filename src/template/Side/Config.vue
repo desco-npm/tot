@@ -60,14 +60,16 @@
         return i.initials === (this.$route.params.lang || process.env.VUE_APP_DEFAULT_LANGUAGE)
       })[0]
 
-      this.$emit('configured', this.config)
+      this.$nextTick(() => {
+        this.$emit('configured', this.config)
+      })
     },
     watch: {
       version: {
         deep: true,
         async handler () {
           Http.defaults.headers.common['version'] = this.version.number
-          
+
           this.$emit('change', this.config)
         }
       },
