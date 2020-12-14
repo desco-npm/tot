@@ -1,9 +1,10 @@
 <template lang="pug">
-  el-input(
-    prefix-icon="el-icon-search"
-    v-model="search"
-    :placeholder="searchTopicsPlaceholder"
-  )
+  span#TopicSearch
+    el-input(
+      prefix-icon="el-icon-search"
+      v-model="search"
+      :placeholder="searchTopicsPlaceholder"
+    )
 </template>
 
 <script>

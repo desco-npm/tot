@@ -3,7 +3,6 @@
     div.side-top
       FrontConfig(@configured="fetch" @change="fetch")
       Logo
-    span#TopicSearch
       Search(@change="search")
     div#Topics(v-bar="scrollConfig" ref="TopicsArea")
       el-tree(
@@ -114,19 +113,6 @@
       background-color: $sideTopBackgroundCollor;
       padding: .5rem 0;
       color: $sideTextCollor;
-    }
-
-    #TopicSearch {
-      input {
-        border: 0;
-        border-radius: 0;
-        background-color: $sideSearchTopicsBackgroundCollor;
-      }
-
-      input,
-      i {
-        color: $sideSearchTopicsTextCollor;
-      }
     }
 
     #Topics {
