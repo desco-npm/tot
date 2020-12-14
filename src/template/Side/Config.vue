@@ -49,12 +49,12 @@
       },
     },
     async mounted () {
-      this.versions = await VersionService.list()
+      this.versions = (await VersionService.list()).reverse()
       this.languages = await LanguageService.list()
 
       this.version = this.$route.params.version
         ? { number: this.$route.params.version, }
-        : this.versions.reverse()[0]
+        : this.versions[0]
 
       this.language = this.languages.filter(i => {
         return i.initials === (this.$route.params.lang || process.env.VUE_APP_DEFAULT_LANGUAGE)
