@@ -57,8 +57,6 @@
               label: label[process.env.VUE_APP_DEFAULT_LANGUAGE],
               content: content[process.env.VUE_APP_DEFAULT_LANGUAGE],
             }
-
-            this.$emit('load', this.article)
           })
       },
       paginate (_article) {
