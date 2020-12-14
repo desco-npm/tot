@@ -68,8 +68,12 @@
       flex-direction: column;
       text-align: center;
       background-color: $sideTopBackgroundCollor;
-      padding: .5rem 0;
+      padding-top: .5rem;
       color: $sideTextCollor;
+
+      #TopicSearch {
+        margin-top: .5rem;
+      }
     }
   }
 </style>
