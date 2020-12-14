@@ -4,11 +4,7 @@
       FrontConfig(@configured="fetch" @change="fetch")
       Logo
     span#TopicSearch
-      el-input(
-        prefix-icon="el-icon-search"
-        v-model="search"
-        :placeholder="searchTopicsPlaceholder"
-      )
+      Search(@change="search")
     div#Topics(v-bar="scrollConfig" ref="TopicsArea")
       el-tree(
         ref="Topics"
@@ -33,23 +29,18 @@
   import TopicService from '@/entities/Topic/service'
   import FrontConfig from './Config'
   import Logo from './Logo'
+  import Search from './Search'
 
   export default {
     name: 'Side',
     mixins: [ ConfigMixin, ],
-    components: { FrontConfig, Logo, },
+    components: { FrontConfig, Logo, Search, },
     props: {
       scrollConfig: Object,
-    },
-    computed: {
-      searchTopicsPlaceholder () {
-        return JSON.parse(process.env.VUE_APP_TOPIC_SEARCH_PLACEHOLDER)[this.laguageInitials()]
-      },
     },
     data () {
       return {
         configured: false,
-        search: '',
         topics: [],
         defaultExpandedTreeKeys: [],
       }
@@ -102,13 +93,11 @@
         }
 
         this.$emit('configured')
-      }
-    },
-    watch: {
-      search () {
-        this.$refs.Topics.filter(this.search)
       },
-    }
+      search (_query) {
+        this.$refs.Topics.filter(_query)
+      },
+    },
   }
 </script>
 

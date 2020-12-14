@@ -2,7 +2,7 @@ import Http from '@/plugins/Http'
 
 export default async (_id, $router) => {
   window.setTimeout(() => {
-    document.querySelectorAll('#Content .vb-content')[0].scrollTop = 0
+    (document.querySelectorAll('#Content .vb-content')[0] || {}).scrollTop = 0
   })
   
   const params = {
