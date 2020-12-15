@@ -63,7 +63,7 @@
 
   body {
     &,
-    #Side,
+    #Side .side,
     #Content {
       overflow: hidden;
     }
@@ -80,13 +80,17 @@
         &,
         #Side,
         #Content {
-          height: 100%;
+          height: 100%; 
         }
 
         #Side {
           background-color: $sideBackgroundCollor;
-          display: flex;
-          flex-direction: column;
+
+          &,
+          .side {
+            display: flex;
+            flex-direction: column;
+          }
         }
 
         #Content {
