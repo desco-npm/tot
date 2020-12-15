@@ -35,11 +35,11 @@
 </script>
 
 <style lang="scss">
-  @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/colors";
 
   #ArticlePaginate {
-    background-color: $contentPaginateBackgroundCollor;
-    border: 2px groove $contentPaginateBorderCollor;
+    background-color: $contentPaginateBackgroundColor;
+    border: 2px groove $contentPaginateBorderColor;
     padding: .5rem;
 
     .el-step {
@@ -55,23 +55,23 @@
 
       .el-step__head {
         .el-step__line {
-          background-color: $contentPaginateLineCollor;
+          background-color: $contentPaginateLineColor;
           top: 17px
         }
 
         .el-step__icon {
           $size: 36px;
 
-          background: $contentPaginateCircleBackgroundCollor;
+          background: $contentPaginateCircleBackgroundColor;
           width: $size;
           height: $size;
           border-radius: 100%;
-          border: 2px solid $contentPaginateCircleBorderCollor;
+          border: 2px solid $contentPaginateCircleBorderColor;
 
           span {
             i,
             svg {
-              color: $contentPaginateCircleIconCollor;
+              color: $contentPaginateCircleIconColor;
             }
           }
         }
@@ -79,7 +79,7 @@
 
       .el-step__main {
         .el-step__title {
-          color: $contentPaginateTitleCollor;
+          color: $contentPaginateTitleColor;
         }
       }
     }

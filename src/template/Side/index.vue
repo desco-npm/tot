@@ -58,7 +58,7 @@
 </script>
 
 <style lang="scss">
-  @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/colors";
   @import "~@/assets/scss/scroll";
   @import "~@/assets/scss/fonts/index";
 
@@ -67,9 +67,9 @@
       display: flex;
       flex-direction: column;
       text-align: center;
-      background-color: $sideTopBackgroundCollor;
+      background-color: $sideTopBackgroundColor;
       padding-top: .5rem;
-      color: $sideTextCollor;
+      color: $sideTextColor;
 
       #TopicSearch {
         margin-top: .5rem;

@@ -85,7 +85,7 @@
 </script>
 
 <style lang="scss">
-  @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/colors";
 
   #Article {
     .vb-content {
@@ -153,7 +153,7 @@
     }
 
     a {
-      color: $contenLinkTextCollor;
+      color: $contenLinkTextColor;
       text-decoration: none;
     }
 
@@ -169,8 +169,8 @@
     }
 
     pre {
-      background-color: $contentPreBackgroundCollor;
-      color: $contentPreTextCollor;
+      background-color: $contentPreBackgroundColor;
+      color: $contentPreTextColor;
       overflow: hidden;
       padding: .5rem;
       overflow-x: auto;
@@ -184,7 +184,7 @@
     }
 
     code {
-      background-color: $contentCodeBsckgroundColor;
+      background-color: $contentCodeBackgroundColor;
       color: $contentCodeTextColor;
       padding: 0 .25rem;
     }
@@ -211,18 +211,18 @@
 
       th {
         font-weight: bold;
-        background-color: $contentTableHeaderBackgoundCollor;
-        color: $contentTableHeaderTextCollor;
+        background-color: $contentTableHeaderBackgoundColor;
+        color: $contentTableHeaderTextColor;
       }
 
       tr:nth-child(odd) {
-        background-color: $contentTableRowOddBackgoundCollor;
-        color: $contentTableRowOddTextCollor;
+        background-color: $contentTableRowOddBackgoundColor;
+        color: $contentTableRowOddTextColor;
       }
 
       tr:nth-child(even) {
-        background-color: $contentTableRowEvenBackgoundCollor;
-        color: $contentTableRowEvenTextCollor;
+        background-color: $contentTableRowEvenBackgoundColor;
+        color: $contentTableRowEvenTextColor;
       }
     }
 

@@ -17,7 +17,7 @@
 </script>
 
 <style lang="scss">
-  @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/colors";
 
   #Logo {
     display: flex;
@@ -29,7 +29,7 @@
         max-width: 100%;
         border-radius: 100%;
         margin: .5rem 0;
-        border: 2px solid $sideTopAvatarBorderCollor;
+        border: 2px solid $sideTopAvatarBorderColor;
       }
     }
 

@@ -86,7 +86,7 @@
 </script>
 
 <style lang="scss">
-  @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/colors";
 
   #FrontConfig {
     display: flex;
@@ -94,10 +94,10 @@
 
     #Version,
     #Language {
-      background: $sideTopFrontConfigComboBackgroundCollor;
+      background: $sideTopFrontConfigComboBackgroundColor;
       align-self: center;
-      color: $sideTopFrontConfigComboTextCollor;
-      border: $sideTopFrontConfigComboBorderCollor;
+      color: $sideTopFrontConfigComboTextColor;
+      border: $sideTopFrontConfigComboBorderColor;
 
       svg {
         margin-right: .25rem;

@@ -91,7 +91,7 @@
 </script>
 
 <style lang="scss">
-  @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/colors";
 
   #Topics {
     flex: 1;
@@ -132,7 +132,7 @@
       }
 
       .el-tree__empty-block .el-tree__empty-text{
-        color: $sideTreeNoItemsTextCollor;
+        color: $sideTreeNoItemsTextColor;
       }
     }
 

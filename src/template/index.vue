@@ -59,7 +59,7 @@
 </script>
 
 <style lang="scss">
-  @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/colors";
 
   body {
     &,
@@ -84,7 +84,7 @@
         }
 
         #Side {
-          background-color: $sideBackgroundCollor;
+          background-color: $sideBackgroundColor;
 
           &,
           .side {
@@ -94,8 +94,8 @@
         }
 
         #Content {
-          background-color: $contentBackgroundCollor;
-          $color: $contentTextCollor;
+          background-color: $contentBackgroundColor;
+          $color: $contentTextColor;
           padding: 0rem 2rem 1rem 1rem;
         }
       }
@@ -107,15 +107,15 @@
   }
 
   .vb > .vb-dragger:hover > .vb-dragger-styler {
-    background-color: $hoverScrollBackgroundCollor;
+    background-color: $hoverScrollBackgroundColor;
   }
 
   .vb > .vb-dragger > .vb-dragger-styler {
-    background-color: $normalScrollBackgroundCollor
+    background-color: $normalScrollBackgroundColor
     
   }
 
   .vb.vb-dragging-phantom > .vb-dragger > .vb-dragger-styler { 
-    background-color: $selectedScrollBackgroundCollor;
+    background-color: $selectedScrollBackgroundColor;
   }
 </style>

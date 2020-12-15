@@ -32,18 +32,18 @@
 </script>
 
 <style lang="scss">
-  @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/colors";
 
   #TopicSearch {
     input {
       border: 0;
       border-radius: 0;
-      background-color: $sideSearchTopicsBackgroundCollor;
+      background-color: $sideSearchTopicsBackgroundColor;
     }
 
     input,
     i {
-      color: $sideSearchTopicsTextCollor;
+      color: $sideSearchTopicsTextColor;
     }
   }
 </style>

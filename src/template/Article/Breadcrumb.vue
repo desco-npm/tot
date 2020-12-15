@@ -30,16 +30,16 @@
 </script>
 
 <style lang="scss">
-  @import "~@/assets/scss/collors";
+  @import "~@/assets/scss/colors";
 
   #ArticleBreadcrumb {
-    background-color: $contentBreadcrumbBackbgroudCollor;
-    border: 1px solid $contentBreadcrumbBorderCollor;
+    background-color: $contentBreadcrumbBackbgroudColor;
+    border: 1px solid $contentBreadcrumbBorderColor;
     padding: .75rem;
 
     .el-breadcrumb__item {
       span {
-        color: $contentBreadcrumbItemTextCollor;
+        color: $contentBreadcrumbItemTextColor;
       }
 
       &.click {
@@ -50,7 +50,7 @@
 
       &:last-child {
         span {
-          color: $contentBreadcrumbItemLastTextCollor;
+          color: $contentBreadcrumbItemLastTextColor;
         }
       }
     }
