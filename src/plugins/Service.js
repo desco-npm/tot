@@ -6,55 +6,73 @@ class Service {
         this.name = this.constructor.name
     }
 
-    list () {
+    list (_options = {}) {
         const url = `${this.name}/list`
 
-        Store.commit('toogleLoading', url)
+        if (!_options.noLoader) {
+            Store.commit('toogleLoading', url)
+        }
 
         return Http.get(url)
             .then(resp => {
-                Store.commit('toogleLoading', url)
+                if (!_options.noLoader) {
+                    Store.commit('toogleLoading', url)
+                }
 
                 return resp.data
             })
             .catch(e => {
-                Store.commit('toogleLoading', url)
+                if (!_options.noLoader) {
+                    Store.commit('toogleLoading', url)
+                }
 
                 return Promise.reject(e)
             })
     }
 
-    get (_id) {
+    get (_id, _options = {}) {
         const url = `${this.name}/read/${_id}`
 
-        Store.commit('toogleLoading', url)
+        if (!_options.noLoader) {
+            Store.commit('toogleLoading', url)
+        }
 
         return Http.get(url)
             .then(resp => {
-                Store.commit('toogleLoading', url)
+                if (!_options.noLoader) {
+                    Store.commit('toogleLoading', url)
+                }
 
                 return resp.data
             })
             .catch(e => {
-                Store.commit('toogleLoading', url)
+                if (!_options.noLoader) {
+                    Store.commit('toogleLoading', url)
+                }
 
                 return Promise.reject(e)
             })
     }
 
-    other (_name) {
+    other (_name, _params = {}, _options = {}) {
         const url = `${this.name}/${_name}`
 
-        Store.commit('toogleLoading', url)
+        if (!_options.noLoader) {
+            Store.commit('toogleLoading', url)
+        }
 
-        return Http.get(url)
+        return Http.get(url, _params)
             .then(resp => {
-                Store.commit('toogleLoading', url)
+                if (!_options.noLoader) {
+                    Store.commit('toogleLoading', url)
+                }
 
                 return resp.data
             })
             .catch(e => {
-                Store.commit('toogleLoading', url)
+                if (!_options.noLoader) {
+                    Store.commit('toogleLoading', url)
+                }
 
                 return Promise.reject(e)
             })

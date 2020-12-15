@@ -4,8 +4,31 @@ const Version = require('./Version')
 const Topic = require('./Topic')
 
 class Article extends global.GenericEntity {
+    constructor () {
+        super()
+
+        global.Express.get('/' + this.name + '/search', async (req, res) => {
+            res.json(await this.search(req))
+        })
+    }
     async list () {
         return []
+    }
+
+    getArticle (_topics, _id) {
+        const ids = _id.split('.')
+        const id = ids.shift()
+
+        const topic = _topics.filter(topic => {
+            return topic.id.split('.').reverse()[0] === id
+        })[0]
+
+        if (ids.length > 0) {
+            return this.getArticle(topic.children, ids.join('.'))
+        }
+        else {
+            return topic
+        }
     }
 
     async read (_id, { headers, }) {
@@ -15,22 +38,6 @@ class Article extends global.GenericEntity {
             const addrs = global.pathJoin(addrsArticle, _lang + '.md')
 
             return { base: addrsBase, full: addrs, }
-        }
-
-        const getArticle = (_topics, _id) => {
-            const ids = _id.split('.')
-            const id = ids.shift()
-
-            const topic = _topics.filter(topic => {
-                return topic.id.split('.').reverse()[0] === id
-            })[0]
-
-            if (ids.length > 0) {
-                return getArticle(topic.children, ids.join('.'))
-            }
-            else {
-                return topic
-            }
         }
 
         let addrs = mountAddrs(headers.version, headers.lang)
@@ -53,7 +60,7 @@ class Article extends global.GenericEntity {
         const topics = require(global.pathJoin(addrs.base, 'topics.json'))
 
         const content = await global.markdownToHtml({ path: addrs.full, })
-        const article = await getArticle(topics, _id)
+        const article = await this.getArticle(topics, _id)
         const breadcrumb = (await Topic.breadcrumb({ headers, }, _id)).reverse()
         const preview = await Topic.preview({ headers, }, _id)
         const next = await Topic.next({ headers, }, _id)
@@ -89,6 +96,24 @@ class Article extends global.GenericEntity {
         }
 
         return toReturn
+    }
+
+    async search ({ headers, query }) {
+        const dir = global.pathJoin(global.rootDir, 'src', 'articles',  headers.version)
+        const lang = headers.lang + '.md'
+        const topics = require(global.pathJoin(dir, 'topics.json'))
+
+        const result = await global.findInFiles(query.query, dir, lang)
+        const formatedResult = []
+        
+        global.objectMap(result, (i, k) => {
+            const id = k.split(dir)[1].split(lang)[0].slice(1, -1).split(global.pathSep).join('.')
+            const article = this.getArticle(topics, id)
+
+            formatedResult.push({ id, label: article.label[headers.lang], })
+        })
+
+        return formatedResult
     }
 }
 

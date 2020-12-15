@@ -6,7 +6,6 @@
       accordion
       node-key="id"
       :default-expanded-keys="defaultExpandedTreeKeys"
-      :filter-node-method="filterTopics"
       @node-click="onTopicClick"
       @node-expand="toogleNodeTree"
       @node-collapse="toogleNodeTree"
@@ -28,7 +27,6 @@
     props: {
       scrollConfig: Object,
       configured: Boolean,
-      filter: String,
     },
     data () {
       return {
@@ -39,17 +37,6 @@
     methods: {
       resetTree () {
         this.topics = clone(this.topics)
-      },
-      filterTopics(_value, _data) {
-        if (!_value) {
-          this.resetTree()
-
-          return true
-        }
-
-        return (
-          _data.label[this.laguageInitials()].toLowerCase().indexOf(_value.toLowerCase()) !== -1
-        )
       },
       async onTopicClick (_topic) {
         if (_topic.article === false) return
@@ -83,9 +70,6 @@
 
         this.fetch()
       },
-      filter () {
-        this.$refs.Topics.filter(this.filter)
-      }
     }
   }
 </script>
