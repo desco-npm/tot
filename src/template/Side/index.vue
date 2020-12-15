@@ -3,8 +3,8 @@
     div.side-top
       FrontConfig(@configured="setConfigured" @change="fetch")
       Logo
-      Search(@change="setFilter")
-    Topics(ref="Topics" :scroll-config="scrollConfig" :configured="configured" :filter="filter")
+      Search
+    Topics(ref="Topics" :scroll-config="scrollConfig" :configured="configured")
 </template>
 
 <script>
@@ -26,7 +26,6 @@
     data () {
       return {
         configured: false,
-        filter: '',
       }
     },
     methods: {
@@ -49,9 +48,6 @@
           await this.toArticle(this.routedArticleId())
           await this.$refs.Topics.fetch()
         }
-      },
-      setFilter (_query) {
-        this.filter = _query
       },
     },
   }
