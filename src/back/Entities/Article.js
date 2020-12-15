@@ -53,11 +53,13 @@ class Article extends global.GenericEntity {
         const topics = require(global.pathJoin(addrs.base, 'topics.json'))
 
         const content = await global.markdownToHtml({ path: addrs.full, })
-        const article = getArticle(topics, _id)
+        const article = await getArticle(topics, _id)
+        const breadcrumb = (await Topic.breadcrumb({ headers, }, _id)).reverse()
         const preview = await Topic.preview({ headers, }, _id)
         const next = await Topic.next({ headers, }, _id)
 
         const toReturn = {
+            breadcrumb,
             ...article,
             label: article.label[headers.lang],
             icon: article.icon || 'el-icon-news',

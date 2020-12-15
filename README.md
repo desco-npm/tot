@@ -11,6 +11,7 @@ O **Tot** é um pacote responsável por prover um ambiente de documentação par
 * Multi-idiomas
 * Tópicos
 * Artigos
+* Breadcrumb
 * Ícones para os artigos/tópicos
 * Filtros
 * Paginação
@@ -51,6 +52,7 @@ Veja uma tabela com todas as configurações disponíveis:
 | SERVER_PORT | Porta em que o backend irá rodar |
 | VERSIONS | Versões documentadas |
 | LANGUAGES | Idiomas suportados pela documentação |
+| BREADCRUMB_AMOUNT_ITEMS | Quantidade de itens no breadcrumb |
 
 
 ### A configuração "VERSIONS"

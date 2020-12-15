@@ -11,6 +11,7 @@
 * Multi-languages
 * Topics
 * Articles
+* Breadcrumb
 * Icons for articles / topics
 * Filters
 * Pagination
@@ -51,6 +52,7 @@ See a table with all available configurations:
 | SERVER_PORT | Port on which the backend will run |
 | VERSIONS | Documented versions |
 | LANGUAGES | Languages supported by the documentation |
+| BREADCRUMB_AMOUNT_ITEMS | Quantity of items in the breadcrumb |
 
 
 ### The "VERSIONS" setting
