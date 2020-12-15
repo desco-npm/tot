@@ -1,7 +1,6 @@
 <template lang="pug">
   div#Article
     ArticleBreadcrumb(:article="article")
-    h1 {{article.label}}
     span(v-html="article.content" v-link)
     ArticlePaginate(:article="article")
 </template>
@@ -106,9 +105,8 @@
       line-height: 1.5rem;
     }
 
-    h1,
     #ArticleBreadcrumb {
-      margin-top: 1rem;
+      margin: 1rem 0;
     }
 
     ul ul {
