@@ -2,10 +2,12 @@
 node_modules
 /dist
 src/articles
-src/assets/scss/collors.scss
+src/assets/scss/colors.scss
+src/assets/scss/fonts.scss
 src/assets/images/logo.png
+src/assets/images/ico.png
+src/assets/fonts
 .env
-
 
 # local env files
 .env.local

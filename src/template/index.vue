@@ -60,6 +60,7 @@
 
 <style lang="scss">
   @import "~@/assets/scss/colors";
+  @import "~@/assets/scss/fonts";
 
   body {
     &,
@@ -69,7 +70,7 @@
     }
     
     #app {
-      font-family: "Roboto Slab";
+      font-family: $FONT_DEFAULT;
       position: absolute;
       top: 0;
       left: 0;

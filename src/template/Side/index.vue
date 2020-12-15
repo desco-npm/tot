@@ -60,7 +60,6 @@
 <style lang="scss">
   @import "~@/assets/scss/colors";
   @import "~@/assets/scss/scroll";
-  @import "~@/assets/scss/fonts/index";
 
   .side {
     .side-top {

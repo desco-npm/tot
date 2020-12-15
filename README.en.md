@@ -16,6 +16,7 @@
 * Filters
 * Pagination
 * Color customization
+* Font customization
 * Configuration
 
 ## Installation
@@ -53,7 +54,6 @@ See a table with all available configurations:
 | VERSIONS | Documented versions |
 | LANGUAGES | Languages supported by the documentation |
 | BREADCRUMB_AMOUNT_ITEMS | Quantity of items in the breadcrumb |
-
 
 ### The "VERSIONS" setting
 
@@ -207,6 +207,19 @@ Explaining: Start the link with `#` and add the id of the desired topic, if you 
 To change the colors of the documentation, simply change the variables in the `collors.scss` file.
 
 This file contains, in addition to variables for all colors used, other variables for each element of the documentation, if something has a color, it has a variable!
+
+## Fonts
+
+To change the sources of the documentation, copy the desired fonts into the `. / Fonts` directory and edit the`. / Fonts.scss` file with the proper font import.
+
+> Note that inside `. / Fonts.scss`, the`. / ~ @ / Assets / fonts / `directory points to where your fonts will be after running **Tot**.
+
+That done, edit the variables `$ FONT_DEFAULT` and` $ FONT_CODE` within the same file to define the font used in each case.
+
+| Variable | Description |
+| --- | --- |
+| $ FONT_DEFAULT | Standard font to be used |
+| $ FONT_CODE | Source to be used in areas where code is displayed |
 
 ## Logo
 

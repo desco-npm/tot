@@ -4,6 +4,8 @@ import App from './App.vue'
 
 import { router, store, } from './imports'
 
+import '@/assets/scss/fonts.scss'
+
 Vue.use(Vuebar);
 
 Vue.config.productionTip = false

@@ -16,6 +16,7 @@ O **Tot** é um pacote responsável por prover um ambiente de documentação par
 * Filtros
 * Paginação
 * Customização de cores
+* Customização de fonte
 * Configuração
 
 ## Instalação
@@ -163,6 +164,7 @@ Estes objetos possuem as seguintes propriedades:
 > Note que é possível ter uma versão sem `topics.json`, neste caso o **Tot** irá carregar o primiro `topics.json` existente nas versões anteriores. Isso evita de precisar ficar replicando `topics.json` a cada pequena mudança de versão, mas garanta ter um  `topics.json` ao menos na primeira versão.
 
 > Note que, caso não defina `icon` a paginação irá usar ícones padrões.
+
 ## Artigos
 
 O que é uma documentação sem os artigos explicando um determinado assunto? Vamos criar eles!
@@ -206,6 +208,20 @@ Explicando: Comece o link com `#` e adicione o id do tópico desejado, caso dese
 Para alterar as cores da documentação, simplesmente altera as variáveis do arquivo `collors.scss`.
 
 Este arquivo contém, além de variáveis para todas as cores usadas, outras variáveis para cada elemento da documentação, se algo tem uma cor, tem uma variável!
+
+## Fontes
+
+Para alterar as fontes da documentação, copie as fontes desejadas para dentro do diretório `./fonts` e edite o arquivo `./fonts.scss` com a importação adequada das fontes.
+
+> Note que dentro de `./fonts.scss`, o diretório `./~@/assets/fonts/` aponta para onde suas fontes ficarão após executar o **Tot**.
+
+Feito isso, edite as variáveis `$FONT_DEFAULT` e `$FONT_CODE` dentro do mesmo arquivo para definir a fonte usada em cada caso.
+
+| Variável | Descrição |
+|---|---|
+| $FONT_DEFAULT | Fonte padrão a ser usada |
+| $FONT_CODE | Fonte a ser udada nas áreas onde código é exibido |
+
 
 ## Logo
 

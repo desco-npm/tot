@@ -86,6 +86,7 @@
 
 <style lang="scss">
   @import "~@/assets/scss/colors";
+  @import "~@/assets/scss/fonts";
 
   #Article {
     .vb-content {
@@ -121,7 +122,7 @@
       font-size: $titleBase - (.25 * 0);
       margin-bottom: 2rem;
     }
-    
+
     h2,
     h3,
     h4,
@@ -159,7 +160,7 @@
 
     pre,
     code {
-      font-family: "Roboto Mono";
+      font-family: $FONT_CODE;
     }
 
     pre,
