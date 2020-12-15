@@ -1,5 +1,6 @@
 <template lang="pug">
   div#Article
+    ArticleBreadcrumb(:article="article")
     h1 {{article.label}}
     span(v-html="article.content" v-link)
     ArticlePaginate(:article="article")
@@ -8,12 +9,13 @@
 <script>
   import ArticleService from '@/entities/Article/service'
   import ArticlePaginate from './Paginate'
+  import ArticleBreadcrumb from './Breadcrumb'
   import ArticleMixin from '@/mixins/Article'
   
   export default {
     name: 'Article',
     mixins: [ ArticleMixin, ],
-    components: { ArticlePaginate, },
+    components: { ArticlePaginate, ArticleBreadcrumb, },
     data () {
       return {
         article: {
@@ -87,8 +89,6 @@
 
   #Article {
     .vb-content {
-      padding-top: 1rem;
-
       table,
       pre,
       blockquote,
@@ -103,6 +103,11 @@
     ul {
       margin-bottom: 1rem;
       line-height: 1.5rem;
+    }
+
+    h1,
+    #ArticleBreadcrumb {
+      margin-top: 1rem;
     }
 
     ul ul {

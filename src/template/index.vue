@@ -96,8 +96,7 @@
         #Content {
           background-color: $contentBackgroundCollor;
           $color: $contentTextCollor;
-          padding: 1rem;
-          padding-right: 2rem;
+          padding: 0rem 2rem 1rem 1rem;
         }
       }
     }

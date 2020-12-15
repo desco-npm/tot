@@ -75,6 +75,18 @@ class Topic extends global.GenericEntity {
         return this.sequence({ headers, }, _id, 1)
     }
 
+    async parent ({ headers, }, _id) {
+        let list = await this.listObject({ headers, }, true)
+
+        const parent = list[_id.split('.').slice(0, -1).join('.')]
+
+        if (!parent) return parent
+
+        parent.label = parent.label[headers.lang]
+
+        return parent
+    }
+
     async sequence ({ headers, }, _id, _sequence) {
         const topics = await this.listObject({ headers, }, true)
         const idTopics = Object.keys(topics)
@@ -104,6 +116,20 @@ class Topic extends global.GenericEntity {
 
     async read () {
         return []
+    }
+
+    async breadcrumb ({ headers, }, _id, _items = []) {
+        const amount = process.env.BREADCRUMB_AMOUNT_ITEMS
+        const items = [ ..._items, ]
+        const parent = await this.parent({ headers, }, _id)
+
+        if (!parent) return items
+
+        items.push(parent)
+
+        return items.length < amount
+            ? this.breadcrumb({ headers, }, parent.id, items)
+            : items
     }
 }
 
