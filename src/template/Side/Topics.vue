@@ -31,7 +31,7 @@
     data () {
       return {
         topics: [],
-        defaultExpandedTreeKeys: [ this.routedArticleId() ],
+        defaultExpandedTreeKeys: this.routedArticleId() ? [ this.routedArticleId() ] : [],
       }
     },
     methods: {
