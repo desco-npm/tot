@@ -18,6 +18,7 @@ O **Tot** é um pacote responsável por prover um ambiente de documentação par
 * Customização de cores
 * Customização de fonte
 * Configuração
+* Componente próprio de códigos
 
 ## Instalação
 
@@ -103,7 +104,7 @@ Estes objetos possuem as seguintes propriedades:
 |---|---|
 | id | A identificação do tópico, este valor deverá ser usado no nome do diretório do artigo relacionado (veremos em detalhes em breve) |
 | label | Nome do tópico, deve conter um JSON contendo propriedades nomeadas com a sigla dos idiomas e com valores contendo o nome do tópico no idioma em questão
-| icon | Classe do ícone do tópico a ser exibido na árvore e também na paginação. Consulte os ícones do [FontAwesome](https://fontawesome.com/icons?d=gallery) e do [Element.io](https://element.eleme.io/#/en-US/component/icon) para escolher o que deseja |
+| icon | Classe do ícone do tópico a ser exibido na árvore. Consulte os ícones do [FontAwesome](https://fontawesome.com/icons?d=gallery) e do [Element.io](https://element.eleme.io/#/en-US/component/icon) para escolher o que deseja |
 | tree | Se informado como `false`, o tópico não irá aparecer na árvore de tópicos nem na paginação |
 | article | Se informado como `false`, o tópico não será clicável na árvore e não aparecerá na paginação |
 | children | Lista de tópicos filhos  |
@@ -162,8 +163,6 @@ Estes objetos possuem as seguintes propriedades:
 > Note que, como cada versão possui seu próprio  `topics.json`, sempre que a versão da documentação mudar, os tópicos também mudarão.
 
 > Note que é possível ter uma versão sem `topics.json`, neste caso o **Tot** irá carregar o primiro `topics.json` existente nas versões anteriores. Isso evita de precisar ficar replicando `topics.json` a cada pequena mudança de versão, mas garanta ter um  `topics.json` ao menos na primeira versão.
-
-> Note que, caso não defina `icon` a paginação irá usar ícones padrões.
 
 ## Artigos
 

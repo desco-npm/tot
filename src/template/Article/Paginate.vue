@@ -3,14 +3,14 @@
     el-step(:title="article.preview.label")
       template(slot="icon")
         span.preview(@click="preview")
-          i(:class="article.preview.icon")
+          i.fas.fa-circle
     el-step(:title="article.label")
       template(slot="icon")
-          i(:class="article.icon")
+          i.fas.fa-circle
     el-step(:title="article.next.label")
       template(slot="icon")
         span.next(@click="next")
-          i(:class="article.next.icon")
+          i.fas.fa-circle
 </template>
 
 <script>
