@@ -11,7 +11,7 @@ export default {
           a.addEventListener('click', async e => {
             e.preventDefault()
 
-            this.toArticle(href.split('#')[1], _vnode.context.$router)
+            _vnode.context.toArticle(href.split('#')[1], _vnode.context.$router)
           })
         }
       })
