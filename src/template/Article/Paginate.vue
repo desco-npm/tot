@@ -2,14 +2,14 @@
   el-steps#ArticlePaginate(align-center)
     el-step(:title="article.preview.label")
       template(slot="icon")
-        span.preview(@click="paginate(article.preview)")
+        span.preview(@click="preview")
           i(:class="article.preview.icon")
     el-step(:title="article.label")
       template(slot="icon")
           i(:class="article.icon")
     el-step(:title="article.next.label")
       template(slot="icon")
-        span.next(@click="paginate(article.next)")
+        span.next(@click="next")
           i(:class="article.next.icon")
 </template>
 
@@ -29,6 +29,12 @@
         this.toArticle(_article.id)
 
         this.$vuebar.refreshScrollbar(this.$parent.$el)
+      },
+      preview () {
+        this.paginate(this.article.preview)
+      },
+      next () {
+        this.paginate(this.article.next)
       }
     },
   }

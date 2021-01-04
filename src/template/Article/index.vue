@@ -2,7 +2,7 @@
   div#Article
     ArticleBreadcrumb(:article="article")
     span(v-html="article.content" v-link v-example-code)
-    ArticlePaginate(:article="article")
+    ArticlePaginate(ref="Paginate" :article="article")
 </template>
 
 <script>

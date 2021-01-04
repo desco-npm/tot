@@ -10,7 +10,7 @@
         v-bar="scrollConfig"
         @keyup.native="contentKeyUp"
       )
-        router-view
+        router-view(ref="Content")
 </template>
 
 <script>
@@ -45,6 +45,12 @@
             break
           // HOME
           case 36: Scroll.scrollTop = 0
+            break
+          // Left
+          case 37: this.$refs.Content.$refs.Paginate.preview()
+            break
+          // Right
+          case 39: this.$refs.Content.$refs.Paginate.next()
             break
           // Down
           case 40: Scroll.scrollTop += arrowDistance
