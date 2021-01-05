@@ -36,7 +36,8 @@
     },
     methods: {
       contentKeyUp (e) {
-        e.preventDefault()
+        // e.preventDefault()
+        e.stopPropagation()
       },
       resetTree () {
         this.topics = clone(this.topics)
