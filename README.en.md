@@ -10,15 +10,15 @@
 * Versions
 * Multi-languages
 * Topics
-* Articles
-* Breadcrumb
-* Icons for articles / topics
+* Icons for topics
 * Filters
+* Articles
+* Own component of example codes
+* Breadcrumb
 * Pagination
 * Color customization
 * Font customization
 * Configuration
-* Own code component
 
 ## Installation
 
@@ -28,7 +28,7 @@ npm install @desco/tot
 cp node_modules/@desco/tot/initial/* .
 ```
 
-1. Install ** Tot **;
+1. Install **Tot**;
 2. Copies Tot initial template files for your project;
 
 > Note that among the files copied in step 3, there is a *packages.json* that will **overwrite** the current one.
@@ -179,7 +179,7 @@ These files will contain the content of the article in the language in question,
 
 > Note that *markdown* files accept both *markdown* code, such as *HTML* and even a mix between them. <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank">See here to learn more about *markdown*</a>.
 
-> Note that if a language file is not created and requested, ** Tot ** will load in the default language configured in the `.env` file.
+> Note that if a language file is not created and requested, **Tot** will load in the default language configured in the `.env` file.
 
 > Note that there is no need to add the topic title, it will automatically be added as a level 1 heading (`h1` /` # `).
 
@@ -200,6 +200,57 @@ If you want to create a link within an article that you send to another article 
 ```
 
 Explaining: Start the link with `#` and add the id of the desired topic, if you want a topic that is a child of oturo (or others) just add the ids in order and separate them by a `.` period.
+
+### Code Examples in Articles
+
+**Tot** has its own markup for code examples in articles.
+
+Let's say you want to display one or more codes for an example, for this we start by adding the following markup where the code should be displayed:
+
+``
+{<exemplo>}
+``
+
+Whenever **Tot** finds this tag, it will add a component based on the settings informed in the file named *example*, as informed and located in the same directory as the article.
+
+``
+module.exports = [
+  {
+    lang: 'html',
+    name: 'Exemplo de HTML',
+    icon: 'fab.fa-html5',
+    content: `
+<template lang="pug">
+  div(@click="onClick") Meu exemplo em HTML aqui
+</template>
+    `,
+  },
+  {
+    lang: 'javascript',
+    name: 'Exemplo de JS',
+    icon: 'fab.fa-js',
+    content: `
+export default {
+  methods: {
+    onClick () {
+      alert('Exemplo de JS!')
+    }
+  }
+}
+    `,
+  },
+]
+``
+
+![Untitled](/assets/img1.png)
+
+As we can see, we are left with a code component that displays one or more codes separated by tabs with the language name and icon.
+
+> If a name is not provided, the technology will be used instead
+
+> If the technology is not informed, a standard icon will be used
+
+> If the reported technology is not recognized, a standard icon will be displayed with the name of the technology in parentheses
 
 ## Colors
 

@@ -10,15 +10,15 @@ O **Tot** é um pacote responsável por prover um ambiente de documentação par
 * Versões
 * Multi-idiomas
 * Tópicos
-* Artigos
-* Breadcrumb
-* Ícones para os artigos/tópicos
+* Ícones para os tópicos
 * Filtros
+* Artigos
+* Componente próprio de exemplo códigos
+* Breadcrumb
 * Paginação
 * Customização de cores
 * Customização de fonte
 * Configuração
-* Componente próprio de códigos
 
 ## Instalação
 
@@ -201,6 +201,57 @@ Caso queira criar um link dentro de um artigo que envie para outro artigo é mui
 ```
 
 Explicando: Comece o link com `#` e adicione o id do tópico desejado, caso deseje um tópico que seja filho de oturo (ou outros) basta ir adicionando os ids em ordem e separando-os por um `.` ponto.
+
+### Exemplos de Códigos nos Artigos
+
+O **Tot** possui uma marcação própria para exemplos de códigos nos artigos.
+
+Digamos que você deseja exibir um ou mais códigos referentes a um exemplo, para isso começamos adicionando a seguinte marcação onde o código deve ser exibido:
+
+```
+{<exemplo>}
+```
+
+Sempre que o **Tot** encontrar esta marcação, ele irá adicionar um componente baseado nas configurações informadas no arquivo de nome *exemplo*, como informado e localizado no mesmo diretório do artigo.
+
+```
+module.exports = [
+  {
+    lang: 'html',
+    name: 'Exemplo de HTML',
+    icon: 'fab.fa-html5',
+    content: `
+<template lang="pug">
+  div(@click="onClick") Meu exemplo em HTML aqui
+</template>
+    `,
+  },
+  {
+    lang: 'javascript',
+    name: 'Exemplo de JS',
+    icon: 'fab.fa-js',
+    content: `
+export default {
+  methods: {
+    onClick () {
+      alert('Exemplo de JS!')
+    }
+  }
+}
+    `,
+  },
+]
+```
+
+![Sem título](/assets/img1.png)
+
+Como podemos ver, ficamos com um componente de código que exibe um ou mais códigos separados por abas com nome e ícone da linguagem.
+
+> Caso um nome não seja informado, a tecnologia será usada no lugar
+
+> Caso a tecnologia não seja informada, um ícone padrão será usado
+
+> Caso a tecnologia informada não seja reconhecida, será exibido um ícone padrão com o nome da tecnologia entre parenteses
 
 ## Cores
 
