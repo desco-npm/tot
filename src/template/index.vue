@@ -1,29 +1,28 @@
 <template lang="pug">
-  div#app(v-loading="$store.state.loadingStatus")
+  div#app(v-loading="$store.state.loadingStatus" tabindex="-1" @keyup="contentKeyUp")
     el-row#Template
       el-col#Side(:span="parseInt(sizeSide)")
         Side(:scroll-config="scrollConfig" @configured="configured = true")
-        |{{configured}}
       el-col#Content(
         :span="parseInt(24 - sizeSide)"
         v-bar="scrollConfig"
         ref="Content"
       )
         div
-          router-view(
+          router-view#Article(
             v-if="configured"
             ref="Article"
-            tabindex="-1"
             @change="onChangeArticle"
-            @keyup.native="contentKeyUp"
           )
 </template>
 
 <script>
   import Side from './Side'
+  import ArticleMixin from '@/mixins/Article'
 
   export default {
     name: 'Template',
+    mixins: [ ArticleMixin, ],
     components: { Side, },
     data () {
       return {
@@ -41,7 +40,7 @@
 
         const arrowDistance = 25
         const pageDistance = window.innerHeight * 0.75
-        console.log(eC)
+
         switch (e.keyCode) {
           // PageUp
           case 33: Scroll.scrollTop -= pageDistance
@@ -70,6 +69,13 @@
         }
       },
     },
+    watch: {
+      configured (c) {
+        if (c) {
+          this.articleFocus()
+        }
+      }
+    }
   }
 </script>
 

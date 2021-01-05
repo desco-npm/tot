@@ -7,6 +7,7 @@ export default {
 
       window.setTimeout(() => {
         (document.querySelectorAll('#Content .vb-content')[0] || {}).scrollTop = 0
+        this.articleFocus()
       })
       
       const params = {
@@ -22,6 +23,9 @@ export default {
     },
     routedArticleId () {
       return this.$route.params.id
+    },
+    articleFocus () {
+      document.querySelectorAll('#app')[0].focus()
     }
   }
 }
