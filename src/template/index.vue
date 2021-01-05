@@ -3,14 +3,16 @@
     el-row#Template
       el-col#Side(:span="parseInt(sizeSide)")
         Side(:scroll-config="scrollConfig" @configured="configured = true")
+        |{{configured}}
       el-col#Content(
         tabindex="-1"
         :span="parseInt(24 - sizeSide)"
-        v-if="configured"
         v-bar="scrollConfig"
+        ref="Content"
         @keyup.native="contentKeyUp"
       )
-        router-view(ref="Content")
+        div
+          router-view(@change="onChangeArticle" v-if="configured")
 </template>
 
 <script>
@@ -27,6 +29,9 @@
       }
     },
     methods: {
+      onChangeArticle () {
+        this.$vuebar.refreshScrollbar(this.$refs.Content)
+      },
       contentKeyUp (e) {
         const Scroll = document.querySelectorAll('#Content .vb-content')[0]
 

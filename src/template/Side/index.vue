@@ -45,7 +45,6 @@
           this.toArticle(firstTopic.id)
         }
         else {
-          // await this.toArticle(this.routedArticleId())
           await this.$refs.Topics.fetch()
         }
       },

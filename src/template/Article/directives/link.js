@@ -1,6 +1,6 @@
 export default {
   link: {
-    update: function (_el, _binding, _vnode) {
+    update: function (_el) {
       _el.querySelectorAll('a').forEach(a => {
         const href = a.href.replace('http://', '').replace('https://', '')
 
@@ -10,8 +10,6 @@ export default {
         else {
           a.addEventListener('click', async e => {
             e.preventDefault()
-
-            _vnode.context.toArticle(href.split('#')[1], _vnode.context.$router)
           })
         }
       })

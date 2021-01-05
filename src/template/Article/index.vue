@@ -31,7 +31,7 @@
     },
     methods: {
       async fetch () {
-        ArticleService.get(this.routedArticleId())
+        await ArticleService.get(this.routedArticleId())
           .then(resp => {
             this.article = resp
           })
@@ -53,6 +53,8 @@
               content: content[process.env.VUE_APP_DEFAULT_LANGUAGE],
             }
           })
+
+          this.$emit('change')
       },
     },
     directives: {
@@ -235,161 +237,4 @@
       }
     }
   }
-
-
-  // #Article {
-  //   .vb-content {
-  //     table,
-  //     pre,
-  //     blockquote,
-  //     #ArticlePaginate {
-  //       margin-right: 1.5rem;
-  //     }
-  //   }
-
-  //   .desco-vue-component-dom {
-  //     width: 100%;
-  //   }
-
-  //   p,
-  //   h1, h2, h3, h4, h5, h6,
-  //   blockquote,
-  //   ul {
-  //     margin-bottom: 1rem;
-  //     line-height: 1.5rem;
-  //   }
-
-  //   #ArticleBreadcrumb {
-  //     margin: 1rem 0;
-  //   }
-
-  //   ul ul {
-  //     margin: 0;
-  //   }
-
-  //   $titleBase: 2.25rem;
-
-  //   h1 {
-  //     border-bottom: 2px solid $contentTitleUnderlineColor;
-  //     font-size: $titleBase - (.25 * 0);
-  //     margin-bottom: 2rem;
-  //   }
-
-  //   h2,
-  //   h3,
-  //   h4,
-  //   h5,
-  //   h6,
-  //   h7 {
-  //     margin-top: 2rem;
-  //   }
-
-  //   h2 {
-  //     font-size: $titleBase - (.25 * 1);
-  //   }
-
-  //   h3 {
-  //     font-size: $titleBase - (.25 * 3);
-  //   }
-
-  //   h4 {
-  //     font-size: $titleBase - (.25 * 4);
-  //     font-weight: bold;
-  //   }
-
-  //   h5 {
-  //     font-size: $titleBase - (.25 * 5);
-  //   }
-
-  //   h6 {
-  //     font-size: $titleBase - (.25 * 6);
-  //   }
-
-  //   a {
-  //     color: $contenLinkTextColor;
-  //     text-decoration: none;
-  //   }
-
-  //   pre,
-  //   code,
-  //   .desco-vue-component-dom {
-  //     font-family: $FONT_CODE;
-  //   }
-
-  //   pre,
-  //   table,
-  //   ul {
-  //     margin: 2rem 0;
-  //   }
-
-  //   pre {
-  //     background-color: $contentPreBackgroundColor;
-  //     color: $contentPreTextColor;
-  //     overflow: hidden;
-  //     padding: .5rem;
-  //     overflow-x: auto;
-
-  //     code {
-  //       background-color: transparent;
-  //       color: unset;
-  //       padding: unset;
-  //       line-height: 1.25rem;
-  //     }
-  //   }
-
-  //   code {
-  //     background-color: $contentCodeBackgroundColor;
-  //     color: $contentCodeTextColor;
-  //     padding: 0 .25rem;
-  //   }
-
-  //   blockquote {
-  //     border-left: .2rem solid $contentBlockquoteBorderColor;
-  //     padding: .5rem;
-  //     font-style: italic;
-  //     font-weight: bold;
-  //     margin: 2rem unset 2rem 0;
-  //     background-color: $contentBlockquoteBackgroundColor;
-  //     color: $contentBlockquoteTextColor;
-
-  //     p {
-  //       margin: 0;
-  //     }
-  //   }
-
-  //   table {
-  //     th,
-  //     td {
-  //       padding: .5rem;
-  //     }
-
-  //     th {
-  //       font-weight: bold;
-  //       background-color: $contentTableHeaderBackgoundColor;
-  //       color: $contentTableHeaderTextColor;
-  //     }
-
-  //     tr:nth-child(odd) {
-  //       background-color: $contentTableRowOddBackgoundColor;
-  //       color: $contentTableRowOddTextColor;
-  //     }
-
-  //     tr:nth-child(even) {
-  //       background-color: $contentTableRowEvenBackgoundColor;
-  //       color: $contentTableRowEvenTextColor;
-  //     }
-  //   }
-
-  //   ul {
-  //     list-style: disc;
-
-  //     li {
-  //       margin: .75rem 1rem;
-  //     }
-  //   }
-
-  //   em {
-  //     font-style: italic;
-  //   }
-  // }
 </style>

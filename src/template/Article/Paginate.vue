@@ -27,8 +27,6 @@
         if (!_article.id) return
 
         this.toArticle(_article.id)
-
-        this.$vuebar.refreshScrollbar(this.$parent.$el)
       },
       preview () {
         this.paginate(this.article.preview)
