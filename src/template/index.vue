@@ -5,14 +5,18 @@
         Side(:scroll-config="scrollConfig" @configured="configured = true")
         |{{configured}}
       el-col#Content(
-        tabindex="-1"
         :span="parseInt(24 - sizeSide)"
         v-bar="scrollConfig"
         ref="Content"
-        @keyup.native="contentKeyUp"
       )
         div
-          router-view(@change="onChangeArticle" v-if="configured")
+          router-view(
+            v-if="configured"
+            ref="Article"
+            tabindex="-1"
+            @change="onChangeArticle"
+            @keyup.native="contentKeyUp"
+          )
 </template>
 
 <script>
@@ -37,7 +41,7 @@
 
         const arrowDistance = 25
         const pageDistance = window.innerHeight * 0.75
-
+        console.log(eC)
         switch (e.keyCode) {
           // PageUp
           case 33: Scroll.scrollTop -= pageDistance
@@ -52,10 +56,10 @@
           case 36: Scroll.scrollTop = 0
             break
           // Left
-          case 37: this.$refs.Content.$refs.Paginate.preview()
+          case 37: this.$refs.Article.$refs.Paginate.preview()
             break
           // Right
-          case 39: this.$refs.Content.$refs.Paginate.next()
+          case 39: this.$refs.Article.$refs.Paginate.next()
             break
           // Down
           case 40: Scroll.scrollTop += arrowDistance
