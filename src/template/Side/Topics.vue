@@ -10,7 +10,7 @@
       @node-expand="toogleNodeTree"
       @node-collapse="toogleNodeTree"
     )
-      span(slot-scope="{ data, }")
+      span(slot-scope="{ data, }" tabindex="-1" @keyup="contentKeyUp")
         i(v-if="data.icon" :class="data.icon")
         | {{data.label[laguageInitials()] || data.label[defaultLaguageInitials()]}}
 </template>
@@ -35,6 +35,9 @@
       }
     },
     methods: {
+      contentKeyUp (e) {
+        e.preventDefault()
+      },
       resetTree () {
         this.topics = clone(this.topics)
       },
