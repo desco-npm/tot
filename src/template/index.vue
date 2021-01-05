@@ -36,6 +36,8 @@
         this.$vuebar.refreshScrollbar(this.$refs.Content)
       },
       contentKeyUp (e) {
+        if (e.shiftKey || e.ctrlKey || e.altKey) return
+
         const Scroll = document.querySelectorAll('#Content .vb-content')[0]
 
         const arrowDistance = 25
