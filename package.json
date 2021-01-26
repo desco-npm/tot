@@ -1,6 +1,6 @@
 {
   "name": "@desco/tot",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "private": false,
   "scripts": {
     "link": "node link",
@@ -12,7 +12,7 @@
   "dependencies": {
     "@desco/manage-file": "^1.0.0",
     "@desco/vue-component-dom": "^1.2.0",
-    "@desco/vue-example-code": "^1.0.0",
+    "@desco/vue-example-code": "^1.0.1",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
