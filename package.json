@@ -1,6 +1,6 @@
 {
   "name": "@desco/tot",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "private": false,
   "scripts": {
     "link": "node link",
@@ -42,7 +42,6 @@
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
     "vue": "^2.6.11",
-    "vue-example-code": "@desco/vue-example-code",
     "vue-router": "^3.4.9",
     "vue-template-compiler": "^2.6.11",
     "vuebar": "0.0.20",
