@@ -215,32 +215,36 @@ Digamos que você deseja exibir um ou mais códigos referentes a um exemplo, par
 Sempre que o **Tot** encontrar esta marcação, ele irá adicionar um componente baseado nas configurações informadas no arquivo de nome *exemplo*, como informado e localizado no mesmo diretório do artigo.
 
 ```
-module.exports = [
-  {
-    lang: 'html',
-    name: 'Exemplo de HTML',
-    icon: 'fab.fa-html5',
-    content: `
+module.exports = {
+    title: 'Título;
+    description: 'Minha Descrição';
+    example: [
+        {
+            lang: 'html',
+            name: 'Exemplo de HTML',
+            icon: 'fab.fa-html5',
+            content: `
 <template lang="pug">
-  div(@click="onClick") Meu exemplo em HTML aqui
+div(@click="onClick") Meu exemplo em HTML aqui
 </template>
-    `,
-  },
-  {
-    lang: 'javascript',
-    name: 'Exemplo de JS',
-    icon: 'fab.fa-js',
-    content: `
+            `,
+        },
+        {
+            lang: 'javascript',
+            name: 'Exemplo de JS',
+            icon: 'fab.fa-js',
+            content: `
 export default {
-  methods: {
-    onClick () {
-      alert('Exemplo de JS!')
+    methods: {
+        onClick () {
+            alert('Exemplo de JS!')
+        }
     }
-  }
 }
-    `,
-  },
-]
+            `,
+        },
+    ]
+}
 ```
 
 ![Sem título](/assets/img1.png)
