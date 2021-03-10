@@ -1,7 +1,7 @@
 <template lang="pug">
   div#Article
     ArticleBreadcrumb(:article="article")
-    span(v-html="article.content" v-link v-example-code)
+    span(v-html="article.content" v-example-code v-link)
     ArticlePaginate(ref="Paginate" :article="article")
 </template>
 

@@ -1,6 +1,6 @@
 {
   "name": "@desco/tot",
-  "version": "1.8.0",
+  "version": "1.10.2",
   "private": false,
   "scripts": {
     "link": "node link",
@@ -12,7 +12,7 @@
   "dependencies": {
     "@desco/manage-file": "^1.0.0",
     "@desco/vue-component-dom": "^1.2.0",
-    "@desco/vue-example-code": "^1.0.0",
+    "@desco/vue-example-code": "^1.2.0",
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
@@ -33,7 +33,6 @@
     "find-in-files": "^0.5.0",
     "fs-extra": "^9.0.1",
     "markdown-into-html": "^1.0.3",
-    "markdown-it-vue": "^1.1.5",
     "object-filter": "^1.0.2",
     "object.map": "^1.0.1",
     "path": "^0.12.7",
@@ -42,7 +41,6 @@
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",
     "vue": "^2.6.11",
-    "vue-example-code": "file:../vue-example-code",
     "vue-router": "^3.4.9",
     "vue-template-compiler": "^2.6.11",
     "vuebar": "0.0.20",
@@ -51,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/descodifica/tot"
+    "url": "git+https://github.com/desco-npm/tot"
   },
   "eslintConfig": {
     "root": true,

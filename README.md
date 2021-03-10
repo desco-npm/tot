@@ -1,39 +1,100 @@
-# @desco/tot
-![logo](initial/logo.png)
+<div align="right">
+  <a href="README.US.md">
+    <img alt="Read in American English" src="https://img.shields.io/static/v1?label=&message=🇺🇸 Read in American English&color=red&style=for-the-badge" />
+  </a>
+</div>
 
->[View documentation in American English](README.en.md)
+<table>
+  <tr>
+    <td><img src="https://i.ibb.co/y81YrrF/tot.png"></td>
+    <td>  
+      <h1>@desco/tot</h1>
+      Pacote que permite criar documentações.
+      <br /><br />
+      <div align="center">
+        <img alt="Licença MIT" src="https://img.shields.io/static/v1?label=Licença&message=MIT&color=green&style=for-the-badge">
+        <img alt="Versão 1.10.2" src="https://img.shields.io/static/v1?label=Versão&message=1.10.2&color=blue&style=for-the-badge">
+      </div>
+      <h4 align="center"> 
+        🧪 Em fase Beta 🚀
+      </h4>
+    </td>
+  </tr>
+</table>
 
-## Sobre
+> <a href="https://github.com/desco-npm" target="_blank">Veja outros projetos NPM aqui.</a>
 
-O **Tot** é um pacote responsável por prover um ambiente de documentação para seus projetos com:
+> <a href="https://github.com/descoifica" target="_blank">Veja outros projetos aqui.</a>
 
-* Versões
-* Multi-idiomas
-* Tópicos
-* Ícones para os tópicos
-* Filtros
-* Artigos
-* Componente próprio de exemplo códigos
-* Breadcrumb
-* Paginação
-* Customização de cores
-* Customização de fonte
-* Configuração
+---
 
-## Instalação
+## 📋 Tabela de conteúdos
 
-```bash 
-npm init
+* [✔️ Recursos](#Recursos)
+* [🛠️ Tecnologias](#Tecnologias)
+* [⚙️ Instalação](#Instalação)
+* [📚 Como Usar](#Como-Usar)
+
+---
+
+<a name="Recursos"></a>
+
+## ✔️ Recursos
+
+* [x] Versões
+* [x] Multi-idiomas
+* [x] Tópicos
+* [x] Ícones para os tópicos
+* [x] Filtros
+* [x] Artigos
+* [x] Componente próprio de exemplo códigos
+* [x] Breadcrumb
+* [x] Paginação
+* [x] Customização de cores
+* [x] Customização de fonte
+* [x] Configuração
+
+---
+
+## 🛠️ Tecnologias
+
+As seguintes tecnologias são utilizadas:
+
+* [NodeJS](https://nodejs.org/en/);
+* [VueJS](https://vuejs.org/);
+* [Axios](https://www.npmjs.com/package/axios);
+* [Element](https://element.eleme.io);
+* [Express](https://expressjs.com);
+* [Express](https://expressjs.com);
+* [PUG/JADE](https://pugjs.org/api/getting-started.html);
+* [SCSS/SASS](https://sass-lang.com);
+
+---
+
+<a name="Instalação"></a>
+
+## ⚙️ Instalação
+
+```bash
 npm install @desco/tot
+
 cp node_modules/@desco/tot/initial/* .
+cp node_modules/@desco/tot/initial/.env ./.env
 ```
 
-1. Instala o **Tot**;
-2. Copia arquivos de modelo inicial do Tot para o seu projeto;
+> Note que será necessário ter o **NPM** instalado para o comando funcionar.
+
+> Os comandos de cópia irão criar arquivos iniciais com os quais trabalhar
 
 > Note que dentre os arquivos copiados no passo 3, consta um *packages.json* que irá **sobrescrever** o atual.
 
-## Configurações
+---
+
+<a name="Como-Usar"></a>
+
+## 📚 Como Usar
+
+### Configurações
 
 Para configura o **Tot** basta manipular o arquivo *.env* disponibilizado no passo 2 da instalação.
 
@@ -57,7 +118,7 @@ Veja uma tabela com todas as configurações disponíveis:
 | BREADCRUMB_AMOUNT_ITEMS | Quantidade de itens no breadcrumb |
 
 
-### A configuração "VERSIONS"
+#### A configuração "VERSIONS"
 
 A configuração `VERSIONS` deve conter uma lista contendo objetos com as seguintes propriedades:
 
@@ -73,7 +134,7 @@ A configuração `VERSIONS` deve conter uma lista contendo objetos com as seguin
 VERSIONS=[ { number: '1.0.0', }, { number: '1.0.1', }, { number: '1.2.9', }, ]
 ```
 
-### A configuração "LANGUAGES"
+#### A configuração "LANGUAGES"
 
 A configuração `LANGUAGES` deve conter uma lista contendo objetos com as seguintes propriedades:
 
@@ -84,11 +145,11 @@ A configuração `LANGUAGES` deve conter uma lista contendo objetos com as segui
 
 *Exemplo:*
 
-```bash
+```js
 LANGUAGES=[ { initials: 'en', name: 'American English', }, { initials: 'ptbr', name: 'Portugês do Brasil', }, ]
 ```
 
-## Tópicos
+### Tópicos
 
 Vejamos como adicionar tópicos na documentação.
 
@@ -110,6 +171,7 @@ Estes objetos possuem as seguintes propriedades:
 | children | Lista de tópicos filhos  |
 
 *Exemplo:*
+
 ```json
 [
     {
@@ -164,7 +226,7 @@ Estes objetos possuem as seguintes propriedades:
 
 > Note que é possível ter uma versão sem `topics.json`, neste caso o **Tot** irá carregar o primiro `topics.json` existente nas versões anteriores. Isso evita de precisar ficar replicando `topics.json` a cada pequena mudança de versão, mas garanta ter um  `topics.json` ao menos na primeira versão.
 
-## Artigos
+### Artigos
 
 O que é uma documentação sem os artigos explicando um determinado assunto? Vamos criar eles!
 
@@ -184,7 +246,7 @@ Estes arquivos conterão o conteúdo do artigo no idioma em questão, ou seja, o
 
 > Note que não é preciso adicionar o título do tópico, ele já será automaticamente adicionado como cabeçalho de nível 1 (`h1` / `#`).
 
-### Links Entre Artigos
+#### Links Entre Artigos
 
 Caso queira criar um link dentro de um artigo que envie para outro artigo é muito simples, veja:
 
@@ -202,45 +264,49 @@ Caso queira criar um link dentro de um artigo que envie para outro artigo é mui
 
 Explicando: Comece o link com `#` e adicione o id do tópico desejado, caso deseje um tópico que seja filho de oturo (ou outros) basta ir adicionando os ids em ordem e separando-os por um `.` ponto.
 
-### Exemplos de Códigos nos Artigos
+#### Exemplos de Códigos nos Artigos
 
 O **Tot** possui uma marcação própria para exemplos de códigos nos artigos.
 
 Digamos que você deseja exibir um ou mais códigos referentes a um exemplo, para isso começamos adicionando a seguinte marcação onde o código deve ser exibido:
 
-```
+```markdown
 {<exemplo>}
 ```
 
 Sempre que o **Tot** encontrar esta marcação, ele irá adicionar um componente baseado nas configurações informadas no arquivo de nome *exemplo*, como informado e localizado no mesmo diretório do artigo.
 
-```
-module.exports = [
-  {
-    lang: 'html',
-    name: 'Exemplo de HTML',
-    icon: 'fab.fa-html5',
-    content: `
+```js
+module.exports = {
+    title: 'Título;
+    description: 'Minha Descrição';
+    example: [
+        {
+            lang: 'html',
+            name: 'Exemplo de HTML',
+            icon: 'fab.fa-html5',
+            content: `
 <template lang="pug">
-  div(@click="onClick") Meu exemplo em HTML aqui
+div(@click="onClick") Meu exemplo em HTML aqui
 </template>
-    `,
-  },
-  {
-    lang: 'javascript',
-    name: 'Exemplo de JS',
-    icon: 'fab.fa-js',
-    content: `
+            `,
+        },
+        {
+            lang: 'javascript',
+            name: 'Exemplo de JS',
+            icon: 'fab.fa-js',
+            content: `
 export default {
-  methods: {
-    onClick () {
-      alert('Exemplo de JS!')
+    methods: {
+        onClick () {
+            alert('Exemplo de JS!')
+        }
     }
-  }
 }
-    `,
-  },
-]
+            `,
+        },
+    ]
+}
 ```
 
 ![Sem título](/assets/img1.png)
@@ -253,13 +319,13 @@ Como podemos ver, ficamos com um componente de código que exibe um ou mais cód
 
 > Caso a tecnologia informada não seja reconhecida, será exibido um ícone padrão com o nome da tecnologia entre parenteses
 
-## Cores
+### Cores
 
 Para alterar as cores da documentação, simplesmente altera as variáveis do arquivo `collors.scss`.
 
 Este arquivo contém, além de variáveis para todas as cores usadas, outras variáveis para cada elemento da documentação, se algo tem uma cor, tem uma variável!
 
-## Fontes
+### Fontes
 
 Para alterar as fontes da documentação, copie as fontes desejadas para dentro do diretório `./fonts` e edite o arquivo `./fonts.scss` com a importação adequada das fontes.
 
@@ -273,19 +339,19 @@ Feito isso, edite as variáveis `$FONT_DEFAULT` e `$FONT_CODE` dentro do mesmo a
 | $FONT_CODE | Fonte a ser udada nas áreas onde código é exibido |
 
 
-## Logo
+### Logo
 
 Para alterar a logo, simplesmente sobrescreva o arquivo `logo.png` pela logo desejada.
 
 > Note que, para melhor exibição, a logo deve ter um formato com largura e altura iguais.
 
-## Ícone
+### Ícone
 
 Para alterar o ícone que aparece na barra do navegador, simplesmente sobrescreva o arquivo `ico.png` pelo ícone desejado.
 
 > Note que, para melhor exibição, o ícone deve ter dimensões de 16x16 pixels.
 
-## Iniciando para Desenvolvimento
+### Iniciando para Desenvolvimento
 
 Apenas rode os seguintes comandos, cada um em uma linha de comando, para executar o front e o back.
 
@@ -294,7 +360,7 @@ npm run front
 npm run back
 ```
 
-## Construindo a Aplicação
+### Construindo a Aplicação
 
 Para construir uma versão final do frontend da aplicação, rode: 
 
@@ -302,7 +368,39 @@ Para construir uma versão final do frontend da aplicação, rode:
 npm run build
 ```
 
-Um diretório *build* será criado na raiz do projeto, ele irá conter todos os arquivos prepadados
-para rodar no seu servidor de produção!
+Um diretório *build* será criado na raiz do projeto, ele irá conter todos os arquivos preparados para rodar no seu servidor de produção!
 
 > Note que `build` constrói apenas o frontend, ainda será necessário iniciar o backend normalmente
+
+---
+
+## Autor
+
+<table>
+  <tr>
+    <td width="150px">
+      <img src="https://scontent.fsdu1-1.fna.fbcdn.net/v/t1.0-9/539886_235546170253505_5977326689811409130_n.jpg?_nc_cat=106&ccb=3&_nc_sid=174925&_nc_eui2=AeGgFWn_fWInwRkTo3mHSP993TbQ0TzG0Y3dNtDRPMbRjS-eZL1tr4I5maqz6O-jva9qWnIxKOsD3UtSm9CTeCys&_nc_ohc=Qw6NaDGrtIgAX9uFF2c&_nc_ht=scontent.fsdu1-1.fna&oh=5ebac9874d7a24e157c8c99fd965c2a4&oe=606539CE" width="100px;" alt=""/>
+      <b>Rafael A. R. Dias</b>
+    </td>
+    <td>  
+      <a href="mailto:eu@diasrafael.com.br" target="_blank" >
+        <img alt="Email eu@diasrafael.com.br" src="https://img.shields.io/static/v1?label=Email&message=eu@diasrafael.com.br&color=red&logo=gmail&style=for-the-badge">
+      </a>
+      <a href="https://www.linkedin.com/in/diasrafael/" target="_blank">
+        <img alt="Linkedin @diasrafael" src="https://img.shields.io/static/v1?label=Linkedin&message=@diasrafael&color=blue&logo=linkedin&style=for-the-badge">
+      </a>
+      <a href="https://www.facebook.com/eudiasrafael" target="_blank">
+        <img alt="Facebook @eudiasrafael" src="https://img.shields.io/static/v1?label=Facebook&message=@eudiasrafael&color=blue&logo=facebook&style=for-the-badge">
+      </a>
+      <a href="https://github.com/descodifica" target="_blank">
+        <img alt="GitHub Geral @descodifica" src="https://img.shields.io/static/v1?label=GitHub Geral&message=@descodifica&color=black&logo=github&style=for-the-badge">
+      </a>
+      <a href="https://github.com/desco-npm" target="_blank">
+        <img alt="GitHub NPM @desco-npm" src="https://img.shields.io/static/v1?label=GitHub NPM&message=@desco-npm&color=black&logo=github&style=for-the-badge">
+      </a>
+      <a href="https://www.npmjs.com/org/desco" target="_blank">
+        <img alt="NPM @desco" src="https://img.shields.io/static/v1?label=NPM&message=@desco&color=red&logo=npm&style=for-the-badge">
+      </a>
+    </td>
+  </tr>
+</table>
