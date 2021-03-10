@@ -49,7 +49,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/descodifica/tot"
+    "url": "git+https://github.com/desco-npm/tot"
   },
   "eslintConfig": {
     "root": true,
