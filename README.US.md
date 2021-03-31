@@ -1,6 +1,6 @@
 <div align="right">
   <a href="README.md">
-    <img alt="Ler em Portugês do Brasil" src="https://img.shields.io/static/v1?label=&message=🇧🇷 Ler em Português do Brasil&color=green&style=for-the-badge" />
+    <img alt="Ler em Portugês do Brasil" src="https://img.shields.io/static/v1?label=&message=Ler+em+Portugu%C3%AAs+do+Brasil&color=green&style=for-the-badge" />
   </a>
 </div>
 
@@ -30,10 +30,10 @@
 
 ## 📋 Table of Contents
 
-* [✔️ Resources](#Resources)
-* [🛠️ Technology](#Technology)
-* [⚙️ Installation](#Installation)
-* [📚 How to use](#How-to-use)
+- [✔️ Resources](#Resources)
+- [🛠️ Technology](#Technology)
+- [⚙️ Installation](#Installation)
+- [📚 How to use](#How-to-use)
 
 ---
 
@@ -41,18 +41,18 @@
 
 ## ✔️ Resources
 
-* [x] Versions
-* [x] Multi-languages
-* [x] Topics
-* [x] Icons for topics
-* [x] Filters
-* [x] Articles
-* [x] Own component of example codes
-* [x] Breadcrumb
-* [x] Pagination
-* [x] Color customization
-* [x] Font customization
-* [x] Configuration
+- [x] Versions
+- [x] Multi-languages
+- [x] Topics
+- [x] Icons for topics
+- [x] Filters
+- [x] Articles
+- [x] Own component of example codes
+- [x] Breadcrumb
+- [x] Pagination
+- [x] Color customization
+- [x] Font customization
+- [x] Configuration
 
 ---
 
@@ -60,14 +60,14 @@
 
 The following technologies are used:
 
-* [NodeJS](https://nodejs.org/en/);
-* [VueJS](https://vuejs.org/);
-* [Axios](https://www.npmjs.com/package/axios);
-* [Element](https://element.eleme.io);
-* [Express](https://expressjs.com);
-* [Express](https://expressjs.com);
-* [PUG / JADE](https://pugjs.org/api/getting-started.html);
-* [SCSS / SASS](https://sass-lang.com);
+- [NodeJS](https://nodejs.org/en/);
+- [VueJS](https://vuejs.org/);
+- [Axios](https://www.npmjs.com/package/axios);
+- [Element](https://element.eleme.io);
+- [Express](https://expressjs.com);
+- [Express](https://expressjs.com);
+- [PUG / JADE](https://pugjs.org/api/getting-started.html);
+- [SCSS / SASS](https://sass-lang.com);
 
 ---
 
@@ -86,7 +86,7 @@ cp node_modules/@desco/tot/initial/.env ./.env
 
 > Copy commands will create initial files to work with
 
-> Note that among the files copied in step 3, there is a *packages.json* that will **overwrite** the current one.
+> Note that among the files copied in step 3, there is a _packages.json_ that will **overwrite** the current one.
 
 ---
 
@@ -96,135 +96,137 @@ cp node_modules/@desco/tot/initial/.env ./.env
 
 ### Settings
 
-To configure **Tot**, just manipulate the *.env* file provided in step 2 of the installation.
+To configure **Tot**, just manipulate the _.env_ file provided in step 2 of the installation.
 
 See a table with all available configurations:
 
-| Name | Description |
-| --- | --- |
-| VUE_APP_TITULO | Documented project title, will appear in both the browser title bar and the documentation template |
-| VUE_APP_BASE_URL | URL where the backend is running |
-| VUE_APP_DEFAULT_LANGUAGE | Acronym for the standard documentation language. If any article is not available in the language requested by the user, it will be loaded in the default language. |
-| VUE_APP_SIZE_SIDE | Size of the side area of ​​the documentation, considering that the entire screen occupies 25 "columns", how many will the side area occupy? It must be an integer. |
-| VUE_APP_TIMEOUT | How long (in mileseconds) the documentation will wait for a response from the backend before giving a timeout error. |
-| VUE_APP_TOPIC_SEARCH_PLACEHOLDER | Text to be displayed in the topic search field when it is empty |
-| VUE_APP_ARTICLE_NOT_FOUND_TITLE | Screen title of "Article not found" |
-| VUE_APP_ARTICLE_NOT_FOUND_CONTENT | "Article not found" screen content |
-| VUE_APP_ARTICLE_ERROR_TITLE | Screen title of "Error loading article" |
-| VUE_APP_ARTICLE_ERROR_CONTENT | Contents of the "Error loading article" screen |
-| SERVER_PORT | Port on which the backend will run |
-| VERSIONS | Documented versions |
-| LANGUAGES | Languages ​​supported by the documentation |
-| BREADCRUMB_AMOUNT_ITEMS | Quantity of items in the breadcrumb |
-
+| Name                              | Description                                                                                                                                                        |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| VUE_APP_TITULO                    | Documented project title, will appear in both the browser title bar and the documentation template                                                                 |
+| VUE_APP_BASE_URL                  | URL where the backend is running                                                                                                                                   |
+| VUE_APP_DEFAULT_LANGUAGE          | Acronym for the standard documentation language. If any article is not available in the language requested by the user, it will be loaded in the default language. |
+| VUE_APP_SIZE_SIDE                 | Size of the side area of ​​the documentation, considering that the entire screen occupies 25 "columns", how many will the side area occupy? It must be an integer. |
+| VUE_APP_TIMEOUT                   | How long (in mileseconds) the documentation will wait for a response from the backend before giving a timeout error.                                               |
+| VUE_APP_TOPIC_SEARCH_PLACEHOLDER  | Text to be displayed in the topic search field when it is empty                                                                                                    |
+| VUE_APP_ARTICLE_NOT_FOUND_TITLE   | Screen title of "Article not found"                                                                                                                                |
+| VUE_APP_ARTICLE_NOT_FOUND_CONTENT | "Article not found" screen content                                                                                                                                 |
+| VUE_APP_ARTICLE_ERROR_TITLE       | Screen title of "Error loading article"                                                                                                                            |
+| VUE_APP_ARTICLE_ERROR_CONTENT     | Contents of the "Error loading article" screen                                                                                                                     |
+| SERVER_PORT                       | Port on which the backend will run                                                                                                                                 |
+| VERSIONS                          | Documented versions                                                                                                                                                |
+| LANGUAGES                         | Languages ​​supported by the documentation                                                                                                                         |
+| BREADCRUMB_AMOUNT_ITEMS           | Quantity of items in the breadcrumb                                                                                                                                |
 
 #### The "VERSIONS" setting
 
 The `VERSIONS` configuration must contain a list containing objects with the following properties:
 
-| Name | Description |
-| --- | --- |
+| Name   | Description        |
+| ------ | ------------------ |
 | number | The version number |
 
 > Note that `VERSIONS` must be ordered from the oldest version to the newest one
 
-*Example:*
+_Example:_
 
 ```js
-VERSIONS=[ { number: '1.0.0', }, { number: '1.0.1', }, { number: '1.2.9', }, ]
+VERSIONS = [{ number: "1.0.0" }, { number: "1.0.1" }, { number: "1.2.9" }];
 ```
 
 #### The "LANGUAGES" setting
 
 The `LANGUAGES` configuration must contain a list containing objects with the following properties:
 
-| Name | Description |
-| --- | --- |
-| name | The name of the language |
+| Name     | Description                 |
+| -------- | --------------------------- |
+| name     | The name of the language    |
 | initials | The acronym of the language |
 
-*Example:*
+_Example:_
 
 ```js
-LANGUAGES=[ { initials: 'en', name: 'American English', }, { initials: 'ptbr', name: 'Portugês do Brasil', }, ]
+LANGUAGES = [
+  { initials: "en", name: "American English" },
+  { initials: "ptbr", name: "Portugês do Brasil" },
+];
 ```
 
 ### Topics
 
 Let's look at how to add topics in the documentation.
 
-Within the `articles` directory, add new directories named with the` number` property of each version added in the `VERSIONS` settings.
+Within the `articles` directory, add new directories named with the`number` property of each version added in the `VERSIONS` settings.
 
-Within each of these directories we will have a file `topics.json` that will contain the topics shown in the documentation for this version and also other directories that will contain the articles in the documentation, but we will see the articles later, we will focus on` topics.json `.
+Within each of these directories we will have a file `topics.json` that will contain the topics shown in the documentation for this version and also other directories that will contain the articles in the documentation, but we will see the articles later, we will focus on`topics.json`.
 
 `Topics.json` should contain an array containing objects for each topic in the documentation.
 
 These objects have the following properties:
 
-| Name | Description |
-| --- | --- |
-| id | The topic identification, this value should be used in the name of the directory of the related article (we will see in detail soon) |
-| label | Topic name, must contain a JSON containing properties named with the acronym of the languages ​​and with values ​​containing the name of the topic in the language in question
-| icon | Class of the topic icon to be displayed in the tree. See the icons for [FontAwesome] (https://fontawesome.com/icons?d=gallery) and [Element.io] (https://element.eleme.io/#/en-US/component/icon) to choose what you want |
-| tree | If entered as `false`, the topic will not appear in the topic tree or in the pagination |
-| article | If entered as `false`, the topic will not be clickable in the tree and will not appear in the pagination |
-| children | List of child topics |
+| Name     | Description                                                                                                                                                                                                             |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id       | The topic identification, this value should be used in the name of the directory of the related article (we will see in detail soon)                                                                                    |
+| label    | Topic name, must contain a JSON containing properties named with the acronym of the languages ​​and with values ​​containing the name of the topic in the language in question                                          |
+| icon     | Class of the topic icon to be displayed in the tree. See the icons for [FontAwesome](https://fontawesome.com/icons?d=gallery) and [Element.io](https://element.eleme.io/#/en-US/component/icon) to choose what you want |
+| tree     | If entered as `false`, the topic will not appear in the topic tree or in the pagination                                                                                                                                 |
+| article  | If entered as `false`, the topic will not be clickable in the tree and will not appear in the pagination                                                                                                                |
+| children | List of child topics                                                                                                                                                                                                    |
 
-*Example:*
+_Example:_
 
 ```json
 [
-    {
-        "id": "level1",
+  {
+    "id": "level1",
+    "icon": "fas fa-sort-numeric-up-alt",
+    "label": {
+      "ptbr": "Nivel 1",
+      "en": "Level 1"
+    },
+    "children": [
+      {
+        "id": "level.1.1",
         "icon": "fas fa-sort-numeric-up-alt",
         "label": {
-            "ptbr": "Nivel 1",
-            "en": "Level 1"
-        },
-        "children": [
-            {
-                "id": "level.1.1",
-                "icon": "fas fa-sort-numeric-up-alt",
-                "label": {
-                    "ptbr": "Nível 1.1",
-                    "en": "Level 1.1"
-                }
-            }
-        ]
-    },
-    {
-        "id": "level2",
-        "icon": "fas fa-sort-numeric-up-alt",
-        "article": false,
-        "label": {
-            "ptbr": "Nivel 2",
-            "en": "Level 2"
-        },
-        "children": [
-            {
-                "id": "level.2.1",
-                "icon": "fas fa-sort-numeric-up-alt",
-                "label": {
-                    "ptbr": "Nível 2.1",
-                    "en": "Level 2.1"
-                }
-            }
-        ]
-    },
-    {
-        "id": "NoTree",
-        "tree": false,
-        "label": {
-            "ptbr": "Sem Árvore",
-            "en": "NoTree"
+          "ptbr": "Nível 1.1",
+          "en": "Level 1.1"
         }
+      }
+    ]
+  },
+  {
+    "id": "level2",
+    "icon": "fas fa-sort-numeric-up-alt",
+    "article": false,
+    "label": {
+      "ptbr": "Nivel 2",
+      "en": "Level 2"
+    },
+    "children": [
+      {
+        "id": "level.2.1",
+        "icon": "fas fa-sort-numeric-up-alt",
+        "label": {
+          "ptbr": "Nível 2.1",
+          "en": "Level 2.1"
+        }
+      }
+    ]
+  },
+  {
+    "id": "NoTree",
+    "tree": false,
+    "label": {
+      "ptbr": "Sem Árvore",
+      "en": "NoTree"
     }
+  }
 ]
 ```
 
 > Note that, as each version has its own `topics.json`, whenever the documentation version changes, the topics will also change.
 
-> Note that it is possible to have a version without `topics.json`, in this case **Tot** will load the first` topics.json` existing in previous versions. This avoids having to keep replicating `topics.json` with every small version change, but make sure you have a` topics.json` at least in the first version.
+> Note that it is possible to have a version without `topics.json`, in this case **Tot** will load the first`topics.json` existing in previous versions. This avoids having to keep replicating `topics.json` with every small version change, but make sure you have a`topics.json` at least in the first version.
 
 ### Articles
 
@@ -234,29 +236,29 @@ Remember that we created a directory for each version and that within each one w
 
 Now, within the version directories, we will create new directories named with the ids of each of the topics provided.
 
-For example: In the `topics.json` exemplified above, we have the topics with id` level1` and `level2`, so we created the directories` level1` and `level2`.
+For example: In the `topics.json` exemplified above, we have the topics with id`level1` and `level2`, so we created the directories`level1` and `level2`.
 
-Within these directories, create *markdown* files for each of the languages ​​configured in the `.env` file. For example: If we have the languages ​​*ptbr* and *en*, we will have the files `ptbr.md` and` en.md`.
+Within these directories, create _markdown_ files for each of the languages ​​configured in the `.env` file. For example: If we have the languages ​​*ptbr* and _en_, we will have the files `ptbr.md` and`en.md`.
 
-These files will contain the content of the article in the language in question, that is, `ptbr.md` will contain the content of the article in Brazilian Portuguese and` en.md` the content of the article in American English.
+These files will contain the content of the article in the language in question, that is, `ptbr.md` will contain the content of the article in Brazilian Portuguese and`en.md` the content of the article in American English.
 
-> Note that *markdown* files accept both *markdown* code, such as *HTML* and even a mix between them. <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank"> See here to learn more about *markdown* </a>.
+> Note that _markdown_ files accept both _markdown_ code, such as _HTML_ and even a mix between them. <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet" target="_blank"> See here to learn more about _markdown_ </a>.
 
 > Note that if a file for a language is not created and requested, **Tot** will load in the default language configured in the `.env` file.
 
-> Note that there is no need to add the topic title, it will automatically be added as a level 1 heading (`h1` /` # `).
+> Note that there is no need to add the topic title, it will automatically be added as a level 1 heading (`h1` /`#`).
 
 #### Links Between Articles
 
 If you want to create a link within an article that you send to another article it is very simple, see:
 
-*Markdown example*
+_Markdown example_
 
 ```markdown
 [Meu Link Para Outro Artigo](#idlevel1.idlevel1.2.idlevel1.2.1)
 ```
 
-*Exemplo em HTML*
+_Exemplo em HTML_
 
 ```html
 <a href="#idlevel1.idlevel1.2.idlevel1.2.1">Meu Link Para Outro Artigo</a>
@@ -274,7 +276,7 @@ Let's say you want to display one or more codes for an example, to do this we st
 {<exemplo>}
 ```
 
-Whenever **Tot** finds this tag, it will add a component based on the settings informed in the file named *example*, as informed and located in the same directory as the article.
+Whenever **Tot** finds this tag, it will add a component based on the settings informed in the file named _example_, as informed and located in the same directory as the article.
 
 ```js
 module.exports = {
@@ -329,15 +331,14 @@ This file contains, in addition to variables for all colors used, other variable
 
 To change the sources of the documentation, copy the desired fonts into the `. / Fonts` directory and edit the`. / Fonts.scss` file with the proper font import.
 
-> Note that inside `. / Fonts.scss`, the`. / ~ @ / Assets / fonts / `directory points to where your fonts will be after running **Tot**.
+> Note that inside `. / Fonts.scss`, the`. / ~ @ / Assets / fonts /`directory points to where your fonts will be after running **Tot**.
 
-That done, edit the variables `$ FONT_DEFAULT` and` $ FONT_CODE` within the same file to define the font used in each case.
+That done, edit the variables `$ FONT_DEFAULT` and`$ FONT_CODE` within the same file to define the font used in each case.
 
-| Variable | Description |
-| --- | --- |
-| $ FONT_DEFAULT | Standard font to be used |
-| $ FONT_CODE | Source to be used in areas where code is displayed |
-
+| Variable        | Description                                        |
+| --------------- | -------------------------------------------------- |
+| \$ FONT_DEFAULT | Standard font to be used                           |
+| \$ FONT_CODE    | Source to be used in areas where code is displayed |
 
 ### Soon
 
@@ -355,10 +356,7 @@ To change the icon that appears on the browser bar, simply overwrite the `ico.pn
 
 Just run the following commands, each on a command line, to execute the front and back.
 
-`` bash
-npm run front
-npm run back
-``
+`bash npm run front npm run back`
 
 ### Building the Application
 
@@ -368,7 +366,7 @@ To build a final version of the application frontend, run:
 npm run build
 ```
 
-A *build* directory will be created at the root of the project, it will contain all the files prepared to run on your production server!
+A _build_ directory will be created at the root of the project, it will contain all the files prepared to run on your production server!
 
 > Note that `build` builds only the frontend, it will still be necessary to start the backend normally
 
@@ -393,10 +391,10 @@ A *build* directory will be created at the root of the project, it will contain 
         <img alt="Facebook @eudiasrafael" src="https://img.shields.io/static/v1?label=Facebook&message=@eudiasrafael&color=blue&logo=facebook&style=for-the-badge">
       </a>
       <a href="https://github.com/descodifica" target="_blank">
-        <img alt="GitHub Overview @descodifica" src="https://img.shields.io/static/v1?label=GitHub Overview&message=@descodifica&color=black&logo=github&style=for-the-badge">
+        <img alt="GitHub Overview @descodifica" src="https://img.shields.io/static/v1?label=GitHub+Overview&message=@descodifica&color=black&logo=github&style=for-the-badge">
       </a>
       <a href="https://github.com/desco-npm" target="_blank">
-        <img alt="GitHub NPM @desco-npm" src="https://img.shields.io/static/v1?label=GitHub NPM&message=@desco-npm&color=black&logo=github&style=for-the-badge">
+        <img alt="GitHub NPM @desco-npm" src="https://img.shields.io/static/v1?label=GitHub+NPM&message=@desco-npm&color=black&logo=github&style=for-the-badge">
       </a>
       <a href="https://www.npmjs.com/org/desco" target="_blank">
         <img alt="NPM @desco" src="https://img.shields.io/static/v1?label=NPM&message=@desco&color=red&logo=npm&style=for-the-badge">
